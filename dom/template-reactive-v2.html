@@ -8,7 +8,7 @@
 
     <p>Contador: {{contador}}</p>
     <p>Contador2: {{contador2}}</p>
-    <p>Resultado: {{resultado()}}</p>
+    <p>Resultado: {{resultado}}</p>
 
 </div>
 
@@ -20,6 +20,13 @@
             contador: 0,
             contador2: 0,
         },
+        computed: {
+            resultado() {
+                console.log('computed resultado chamado')
+                return this.contador >= 5 ?
+                    'Maior ou igual a 5' : 'Menor que 5'
+            }
+        },
         methods: {
             aumentar() {
                 this.contador++
@@ -27,10 +34,11 @@
             diminuir() {
                 this.contador--
             },
-            resultado(){
-                return this.contador >= 5 ?
-                'Maior ou igual a 5' : 'Menor que 5'
-            }
+            /*             resultado(){
+                            console.log('resultado chamado')
+                            return this.contador >= 5 ?
+                            'Maior ou igual a 5' : 'Menor que 5'
+                        } */
         }
     })
 
