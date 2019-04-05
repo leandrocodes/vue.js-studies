@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+
+    <div>
+        <button v-on:click="alerta">Exibir Alerta</button>
+    </div>
+
+    <div>
+        <input v-on:keydown="store" type="text">
+        <p>{{ valor }}</p>
+    </div>
+
+    <div>
+        <input v-on:keydown.enter="storeKT" type="text">
+        <p>{{ valor }}</p>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
