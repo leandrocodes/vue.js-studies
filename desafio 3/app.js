@@ -4,7 +4,7 @@ new Vue({
         valor: 0,
     },
     watch: {
-        valor() {
+        resultado() {
             setTimeout(() => {
                 this.valor = 0
             }, 5000)
