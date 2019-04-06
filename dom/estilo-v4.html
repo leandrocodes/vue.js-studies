@@ -1,0 +1,66 @@
+<script src="https://unpkg.com/vue"></script>
+
+
+<style>
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background: red;
+    }
+
+    .c2 {
+        background: green;
+    }
+
+    .c3 {
+        background: blue;
+    }
+
+    .girar {
+        transform: rotate(45deg);
+    }
+</style>
+
+<div id="app">
+
+    <div class="caixas">
+        <div class="demo" :style="{backgroundColor: cor}"></div>
+        <div class="demo" :style="[meuEstilo, {height: altura}]"></div>
+        <div class="demo"></div>
+    </div>
+
+    <hr>
+
+    <input type="text" v-model="cor">
+    <input type="text" v-model="largura">
+
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cor: 'red',
+            largura: 100,
+            altura: 200
+        },
+        computed: {
+            meuEstilo() {
+                return {
+                    backgroundColor: this.cor,
+                    width: `${this.largura}px`
+                }
+            }
+        },
+    })
+</script>
