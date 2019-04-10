@@ -1,4 +1,3 @@
-
 <template>
   <div id="app" class="container">
     <nav class="navbar navbar-expand-sm bg-light">
