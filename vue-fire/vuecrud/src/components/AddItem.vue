@@ -44,6 +44,7 @@ export default {
   },
   methods: {
       addItem() {
+          console.log('add');
         this.$firebaseRefs.items.push({
             name: this.newItem.name,
             price: this.newItem.price
