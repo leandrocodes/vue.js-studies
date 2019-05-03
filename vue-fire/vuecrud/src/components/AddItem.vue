@@ -2,16 +2,16 @@
   <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Add Item</h3>
+                <h3>Adicionar</h3>
             </div>
             <div class="card-body">
                 <form v-on:submit.prevent="addItem">
                     <div class="form-group">
-                        <label>Item Name:</label>
+                        <label>Nome do Item:</label>
                         <input type="text" class="form-control" v-model="newItem.name"/>
                     </div>
                     <div class="form-group">
-                        <label>Item Price:</label>
+                        <label>Preço do item:</label>
                         <input type="text" class="form-control" v-model="newItem.price"/>
                     </div>
                     <div class="form-group">
@@ -43,8 +43,7 @@ export default {
     }
   },
   methods: {
-      addItem() {
-          console.log('add');
+      addItem() {   
         this.$firebaseRefs.items.push({
             name: this.newItem.name,
             price: this.newItem.price
