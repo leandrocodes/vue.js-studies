@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+
+<div id="app">
+    <p>
+        {{contador}}
+    </p>
+
+    <button v-on:click="somar(5, $event)">Somar ao passo de: 5</button>
+
+    <p v-on:mousemove="atualizar">Mouse: {{x}} e {{y}}
+
+        <span v-on:mousemove.stop>Parar Aqui</span>
+    </p>
+
+    <a v-on:click.prevent href="http://google.com">Google</a>
+
+    <hr>
+
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta">
+
+</div>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            x: 0,
+            y: 0,
+            contador: 0
+        },
+        methods: {
+            somar(passo, ev) {
+                console.log(passo, ev);
+                this.contador += passo;
+            },
+            atualizar(e){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            exibirAlerta(){
+                alert('tá fundando');
+            }
+        }
+    })
+</script>
