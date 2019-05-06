@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,43 @@
     <script src="https://unpkg.com/vue"></script>
 
 </head>
+
 <body>
 
     <div id="app">
+        <div class="panel scores">
+            <div class="score">
+                <h1>Player</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}">
 
+                    </div>
+                </div>
+                {{ playerLife }}%
+            </div>
+
+            <div class="score">
+                <h1>Monster</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}">
+
+                    </div>
+                </div>
+                {{ monsterLife }}%
+            </div>
+
+        </div>
+
+        <div class="panel result">2</div>
+        <div class="panel buttons">3</div>
+        <div class="panel logs">4</div>
     </div>
 
     <script src="monster.js"></script>
+
+
+    <input type="checkbox" name="" id="">
+
 </body>
+
 </html>
