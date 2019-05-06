@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +7,27 @@
     <title>Monster Killer</title>
     <link rel="stylesheet" href="monster.css">
     <script src="https://unpkg.com/vue"></script>
-
 </head>
-
 <body>
-
     <div id="app">
-
         <div class="panel scores">
             <div class="score">
                 <h1>Player</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}">
-
                     </div>
                 </div>
                 {{ playerLife }}%
             </div>
-
             <div class="score">
                 <h1>Monster</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}">
-
                     </div>
                 </div>
                 {{ monsterLife }}%
             </div>
-
         </div>
-
         <div v-if="hasResult" class="panel result">
             <div v-if="monsterLife === 0" class="win">
                 You Won! 😄
@@ -46,28 +36,18 @@
                 You Lose! 😞
             </div>
         </div>
-
         <div class="panel buttons">
-
             <template v-if="running">
-
                 <button class="btn attack">Attack</button>
                 <button class="btn special-attack">Special Attack</button>
                 <button class="btn heal">Heal</button>
-                <button class="btn give-up">Give Up</button>
-                
+                <button class="btn give-up" @click="running = false">Give Up</button>
             </template>
-
-            <button v-else class="btn new-game">New Game</button>
+            <button v-else class="btn new-game" @click="startGame">New Game</button>
         </div>
-
         <div class="panel logs">
-
         </div>
     </div>
-
     <script src="monster.js"></script>
-
 </body>
-
 </html>

@@ -11,9 +11,12 @@ new Vue({
         }
     },
     methods: {
-
+        startGame(){
+            this.running = true
+            this.playerLife = 100
+            this.monsterLife = 100
+        }
     },
     watch: {
-        
     },
 })
