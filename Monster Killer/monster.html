@@ -12,7 +12,9 @@
     <div id="app">
         <div class="panel scores">
             <div class="score">
+                    <img src="https://img.icons8.com/color/250/000000/iron-age-warrior.png">
                 <h1>Player</h1>
+
                 <div class="life-bar">
                     <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}">
                     </div>
@@ -20,6 +22,7 @@
                 {{ playerLife }}%
             </div>
             <div class="score">
+                    <img src="https://img.icons8.com/color/250/000000/orc.png">
                 <h1>Monster</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}">
@@ -38,8 +41,8 @@
         </div>
         <div class="panel buttons">
             <template v-if="running">
-                <button class="btn attack">Attack</button>
-                <button class="btn special-attack">Special Attack</button>
+                <button class="btn attack" @click="attack(false)">Attack</button>
+                <button class="btn special-attack"  @click="attack(true)">Special Attack</button>
                 <button class="btn heal">Heal</button>
                 <button class="btn give-up" @click="running = false">Give Up</button>
             </template>
