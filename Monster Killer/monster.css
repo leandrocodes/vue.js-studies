@@ -1,5 +1,6 @@
 html{
     font-family: 'Dosis', sans-serif;
+    font-weight: 600;
 }
 
 #app{
@@ -27,8 +28,8 @@ html{
 }
 
 .score h1{
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 2rem;
 }
 
 .life-bar{
@@ -46,4 +47,19 @@ html{
 
 .life-bar .life.danger{
     background-color: #e74c3c;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.result .win{
+    color: #2ecc71;
+}
+
+.result .lose{
+    color: #e74c3c;
 }

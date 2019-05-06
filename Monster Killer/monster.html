@@ -14,6 +14,7 @@
 <body>
 
     <div id="app">
+
         <div class="panel scores">
             <div class="score">
                 <h1>Player</h1>
@@ -28,7 +29,7 @@
             <div class="score">
                 <h1>Monster</h1>
                 <div class="life-bar">
-                    <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife + '%'}">
+                    <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}">
 
                     </div>
                 </div>
@@ -37,15 +38,29 @@
 
         </div>
 
-        <div class="panel result">2</div>
-        <div class="panel buttons">3</div>
-        <div class="panel logs">4</div>
+        <div v-if="hasResult" class="panel result">
+            <div v-if="monsterLife === 0" class="win">
+                You Won! 😄 
+            </div>
+            <div v-else class="lose">
+                You Lose! 😞
+            </div>
+        </div>
+
+        <div class="panel buttons">
+            <button class="btn attack">Attack</button>
+            <button class="btn special-atack">Special Attack</button>
+            <button class="btn heal">Heal</button>
+            <button class="btn give-up">Give Up</button>
+            <button class="btn new-game">New Game</button>
+        </div>
+
+        <div class="panel logs">
+
+        </div>
     </div>
 
     <script src="monster.js"></script>
-
-
-    <input type="checkbox" name="" id="">
 
 </body>
 
