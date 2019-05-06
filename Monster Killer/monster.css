@@ -63,3 +63,41 @@ html{
 .result .lose{
     color: #e74c3c;
 }
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.new-game{
+    background: #3498db;
+    color: #FFF;
+}
+
+.attack{
+    background: #c0392b;
+    color: #FFF
+}
+
+.special-attack{
+    background: #f39c12;
+    color: #FFF;
+}
+
+.heal{
+    background-color: #27ae60;
+    color: #FFF;
+}
+
+.give-up{
+    background-color: #8e44ad;
+    color: #FFF;
+}
