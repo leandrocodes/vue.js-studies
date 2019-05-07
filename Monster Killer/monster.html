@@ -12,7 +12,7 @@
     <div id="app">
         <div class="panel scores">
             <div class="score">
-                    <img src="https://img.icons8.com/color/250/000000/iron-age-warrior.png">
+                <img src="https://img.icons8.com/color/250/000000/iron-age-warrior.png">
                 <h1>Player</h1>
 
                 <div class="life-bar">
@@ -22,7 +22,7 @@
                 {{ playerLife }}%
             </div>
             <div class="score">
-                    <img src="https://img.icons8.com/color/250/000000/orc.png">
+                <img src="https://img.icons8.com/color/250/000000/orc.png">
                 <h1>Monster</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}">
@@ -42,13 +42,16 @@
         <div class="panel buttons">
             <template v-if="running">
                 <button class="btn attack" @click="attack(false)">Attack</button>
-                <button class="btn special-attack"  @click="attack(true)">Special Attack</button>
-                <button class="btn heal">Heal</button>
+                <button class="btn special-attack" @click="attack(true)">Special Attack</button>
+                <button class="btn heal" @click="healAndAttack()">Heal</button>
                 <button class="btn give-up" @click="running = false">Give Up</button>
             </template>
             <button v-else class="btn new-game" @click="startGame">New Game</button>
         </div>
-        <div class="panel logs">
+        <div v-if="logs.length" class="panel logs">
+            <ul>
+                <li :class="log.cls" class="log" v-for="log in logs">{{log.text}}</li>
+            </ul>
         </div>
     </div>
     <script src="monster.js"></script>
