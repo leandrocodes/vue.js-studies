@@ -12,6 +12,9 @@ new Vue({
         }
     },
     methods: {
+        registerLog(text, cls) {
+            this.logs.unshift({ text, cls })
+        },
         startGame() {
             this.running = true
             this.playerLife = 100
@@ -42,9 +45,6 @@ new Vue({
         healAndAttack() {
             this.heal(10, 12)
             this.damage('playerLife', 5, 12, false, 'Monster', 'Player', 'monster')
-        },
-        registerLog(text, cls) {
-            this.logs.unshift({ text, cls })
         }
     },
     watch: {

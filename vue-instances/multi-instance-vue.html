@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/vue"></script>
+
+
+<div id="app1">
+    {{ titulo1 }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<div id="app2">
+    {{ titulo2 }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<script>
+
+    new Vue({
+        el:'#app1',
+        data:{
+            titulo1: 'Teste 1'
+        },
+        methods:{
+            add(){
+                this.titulo1 += '!'
+            }
+        }
+    })
+    
+    new Vue({
+        el:'#app2',
+        data:{
+            titulo2: 'Teste 2'
+        },
+        methods:{
+            add(){
+                this.titulo2 += '!'
+            }
+        }
+    })
+
+</script>
