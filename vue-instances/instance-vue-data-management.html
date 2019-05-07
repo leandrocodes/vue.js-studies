@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/vue"></script>
+
+
+<div id="app">
+    {{ titulo }}
+    {{ novaInfo }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<script>
+
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            titulo: 'Teste 1'
+        },
+        methods:{
+            add(){
+                this.titulo += '?'
+            }
+        }
+    })
+    //teste usando uma nova propriedade externamente
+    //não é reativa
+    vm.novaInfo = 'Teste'
+
+</script>
