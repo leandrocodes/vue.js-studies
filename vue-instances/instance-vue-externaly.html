@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/vue"></script>
+
+
+<div id="app1">
+    {{ titulo1 }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<div id="app2">
+    {{ titulo2 }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<script>
+
+    const vm1 = new Vue({
+        el:'#app1',
+        data:{
+            titulo1: 'Teste 1'
+        },
+        methods:{
+            add(){
+                vm2.titulo2 += '?'
+            }
+        }
+    })
+    
+   const vm2 =  new Vue({
+        el:'#app2',
+        data:{
+            titulo2: 'Teste 2'
+        },
+        methods:{
+            add(){
+                vm1.titulo1 += '!'
+            }
+        }
+    })
+
+    setTimeout(()=>{
+        vm1.titulo1 = 'Alterado pelo timer'
+    }, 1000)
+
+</script>
