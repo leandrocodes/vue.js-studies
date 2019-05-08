@@ -24,37 +24,36 @@
 </template>
 
 <script>
+    import { db } from '../config/db';
 
-import { db } from '../config/db';
-
-export default {
-  components: {
-      name: 'EditItem'
-  },
-  firebase: {
-    items: db.ref('items'),
-    itemsObj: {
-      source: db.ref('items'),
-      asObject: true
+    export default {
+        components: {
+            name: 'EditItem'
+        },
+        firebase: {
+            items: db.ref('items'),
+            itemsObj: {
+            source: db.ref('items'),
+            asObject: true
+            }
+        },
+        data () {
+            return {
+            newItem: {}
+            }
+        },
+        created() {
+            let item = this.itemsObj[this.$route.params.id]
+            this.newItem = {
+            name: item.name,
+            price: item.price
+            }
+        },
+        methods: {
+            updateItem() {
+            this.$firebaseRefs.items.child(this.$route.params.id).set(this.newItem);
+            this.$router.push('/index')
+            }
+        }
     }
-  },
-  data () {
-    return {
-      newItem: {}
-    }
-  },
-  created() {
-     let item = this.itemsObj[this.$route.params.id]
-     this.newItem = {
-       name: item.name,
-       price: item.price
-     }
-  },
-  methods: {
-    updateItem() {
-      this.$firebaseRefs.items.child(this.$route.params.id).set(this.newItem);
-      this.$router.push('/index')
-    }
-  }
-}
 </script>
