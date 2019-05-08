@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<script src="https://unpkg.com/vue"></script>
+<div id="app">
+    {{ titulo }}
+    <br>
+    <button @click="add">Add</button>
+</div>
+
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            titulo: 'Teste 1'
+        },
+        methods:{
+            add(){
+                this.titulo += '?'
+            }
+        }
+    })
+</script>

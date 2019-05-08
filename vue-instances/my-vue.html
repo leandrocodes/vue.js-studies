@@ -7,6 +7,7 @@
     {{ 2 / 2 }}
     {{ 2 * 2 }}
     {{ 3 - 1 }}
+    {{ Math.pow(2, 3) }}
 </div>
 
 
@@ -25,7 +26,7 @@
                 }
             })
         }
-        const regex = /\{\{([\s\w+*-/]*)\}\}/g
+        const regex = /\{\{([\s\w)(.+*-/]*)\}\}/g
 
         this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
             const value = this[$1.trim()]
