@@ -8,14 +8,14 @@
                 <form v-on:submit.prevent="addItem">
                     <div class="form-group">
                         <label>Nome do Item:</label>
-                        <input type="text" class="form-control" v-model="newItem.name"/>
+                        <input type="text" class="form-control" v-model="newItem.name">
                     </div>
                     <div class="form-group">
                         <label>Preço do item:</label>
-                        <input type="text" class="form-control" v-model="newItem.price"/>
+                        <input type="text" class="form-control" v-model="newItem.price">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Add Item"/>
+                        <input type="submit" class="btn btn-primary" value="Add Item">
                     </div>
                 </form>
             </div>
