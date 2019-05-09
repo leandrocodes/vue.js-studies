@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/vue"></script>
+
+
+<div id="app">
+    <h1>
+        {{ titulo }}
+    </h1>
+
+    <button @click="titulo += '#'">Add # ➕ </button>
+    <button @click="$destroy()">Destroy 💥 </button>
+</div>
+
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data:{
+            titulo: 'lifecycle',
+
+        },
+        beforeCreate() {
+            console.log('Antes de criar')
+        },
+        created() {
+            console.log('Criado')
+        },
+        beforeMount() {
+            console.log('Antes de montar a DOM')
+        },
+        mounted() {
+            console.log('DOM montada')
+        },
+        beforeUpdate() {
+            console.log('Antes de atualizar a DOM')
+        },
+        updated() {
+            console.log('DOM atualizada')
+        },
+        beforeDestroy() {
+            console.log('Antes de destruir a DOM')
+        },
+        destroyed() {
+            console.log('DOM destruida')
+        },
+    })
+
+</script>
