@@ -11,7 +11,7 @@ export default {
         return{
             contador: 0
         }
-    }
+    }   
 }
 </script>
 
