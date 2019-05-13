@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <contadores/>
+        <button> ☣️ </button>
     </div>
 </template>
 
