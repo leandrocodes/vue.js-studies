@@ -35,6 +35,7 @@ export default {
         width: 30px;
         border-radius: 50%;
         background-color: blueviolet;
+        border-color: #000;
         color: #FFF;
         margin-left: 10px;
         outline: none;

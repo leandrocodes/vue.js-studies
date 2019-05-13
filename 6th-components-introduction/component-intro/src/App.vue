@@ -2,6 +2,7 @@
     <div id="app">
         <h1>Contadores</h1>
         {{contador}}
+        <contador></contador>
     </div>
 </template>
 
