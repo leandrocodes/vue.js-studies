@@ -4,14 +4,19 @@
     <p>Vários detalhes...</p>
     <p>
       Nome do usuário:
-      <strong>{{ nome }}</strong>
+      <strong>{{ inverterNome() }}</strong>
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["nome"]
+  props: ['nome'],
+  methods: {
+      inverterNome(){
+        return this.nome.split('').reverse().join('')
+      }
+  },
 };
 </script>
 
