@@ -6,6 +6,7 @@
       Nome do usuário:
       <strong>{{ nome }}</strong>
     </p>
+    <button @click="reiniciarNome">Reset</button>
   </div>
 </template>
 
@@ -22,6 +23,10 @@ export default {
 /*       inverterNome(){
         return this.nome.split('').reverse().join('')
       } */
+      reiniciarNome(){
+          this.nome = 'Leandro'
+          this.$emit('nomeMudou', this.nome)
+      }
   },
 };
 </script>
