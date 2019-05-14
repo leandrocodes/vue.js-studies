@@ -12,14 +12,19 @@
 </template>
 
 <script>
+
+import bus from '@/bus'
+
 export default {
   props: {
     idade: Number
   },
   methods: {
     alterarIdade() {
-      //this.idade = 21;
-      this.$emit('idadeMudou', 21)
+      this.idade++
+      //this.$emit('idadeMudou', 21)
+      //bus.$emit('idadeMudou', this.idade)
+      bus.alterarIdade(this.idade)
     }
   }
 };

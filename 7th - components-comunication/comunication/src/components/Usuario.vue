@@ -20,7 +20,9 @@
         :reiniciarFn="reiniciarNome"
       />
       <!-- callback above -->
-      <app-usuario-editar :idade="idade" @idadeMudou="idade = $event"/>
+      <app-usuario-editar :idade='idade'/>
+        <!-- tava em cima
+        @idadeMudou="idade = $event" -->
     </div>
   </div>
 </template>

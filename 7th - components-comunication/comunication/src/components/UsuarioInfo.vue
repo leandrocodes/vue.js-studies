@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import bus from "@/bus";
 export default {
   props: {
     nome: {
@@ -33,8 +34,13 @@ export default {
       } */
     reiniciarNome() {
       //this.nome = 'Leandro'
-      this.$emit("nomeMudou", "Leandro");
+      this.$emit("nomeMudou", "Leandro")
     }
+  },
+  created(){
+      bus.quandoIdademudar((idade) =>{
+          this.idade = idade
+      })
   }
 };
 </script>
