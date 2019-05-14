@@ -6,6 +6,10 @@
       Nome do usuário:
       <strong>{{ nome }}</strong>
     </p>
+    <p>
+      Idade do usuário:
+      <strong>{{idade}}</strong>
+    </p>
     <button @click="reiniciarNome">Reset</button>
     <button @click="reiniciarFn">Restart ((Calback))</button>
   </div>
@@ -14,23 +18,24 @@
 <script>
 export default {
   props: {
-      nome: {
-          type: String,
-          //required: true,
-          default: 'Leandro VM'
-      },
-      //to use callback
-      reiniciarFn: Function
+    nome: {
+      type: String,
+      //required: true,
+      default: "Leandro VM"
+    },
+    //to use callback
+    reiniciarFn: Function,
+    idade: Number
   },
   methods: {
-/*       inverterNome(){
+    /*       inverterNome(){
         return this.nome.split('').reverse().join('')
       } */
-      reiniciarNome(){
-          this.nome = 'Leandro'
-          this.$emit('nomeMudou', this.nome)
-      }
-  },
+    reiniciarNome() {
+      //this.nome = 'Leandro'
+      this.$emit("nomeMudou", "Leandro");
+    }
+  }
 };
 </script>
 
