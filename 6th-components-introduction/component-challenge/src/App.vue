@@ -2,16 +2,16 @@
   <v-app>
     <!-- MENU -->
 
-    <side-menu/>
+    <app-menu/>
 
     <!-- TOOLBAR -->
-    <toolbar/>
+    <app-toolbar/>
 
     <!-- CAROUSEL -->
-    <carousel/>
+    <app-carousel/>
 
     <!-- FOOTER -->
-    <footer-v/>
+    <app-footer/>
   </v-app>
 </template>
 
@@ -23,10 +23,10 @@ import Footer from "@/components/template/Footer.vue"
 
 export default {
   components: {
-    'side-menu': Menu,
-    'toolbar': Toolbar,
-    'carousel': Carousel,
-    'footer-v': Footer
+    appMenu: Menu,
+    appToolbar: Toolbar,
+    appCarousel: Carousel,
+    appFooter: Footer
   }
 }
 </script>
