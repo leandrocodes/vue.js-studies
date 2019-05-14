@@ -18,10 +18,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props: {usuarios: Array}
+};
 </script>
 
-<style>
+<style scoped>
 .usuario-lista{
     flex: 1;
     display: flex;
