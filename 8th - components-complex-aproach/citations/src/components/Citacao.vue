@@ -1,6 +1,6 @@
 <template>
     <div class="citacao">
-        
+     <slot></slot>
     </div>
 </template>
 
