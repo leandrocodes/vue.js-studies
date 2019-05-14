@@ -7,6 +7,7 @@
       <strong>{{ nome }}</strong>
     </p>
     <button @click="reiniciarNome">Reset</button>
+    <button @click="reiniciarFn">Restart ((Calback))</button>
   </div>
 </template>
 
@@ -17,7 +18,9 @@ export default {
           type: String,
           //required: true,
           default: 'Leandro VM'
-      }
+      },
+      //to use callback
+      reiniciarFn: Function
   },
   methods: {
 /*       inverterNome(){
