@@ -50,9 +50,12 @@ export default {
 </script>
 
 <style scoped>
-.citacoes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .citacoes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        color: green;
+    }
 </style>
