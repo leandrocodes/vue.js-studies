@@ -1,10 +1,15 @@
 <template>
 	<div id="app">
+
         <span>
             <button v-if="componente === 'Sobre' " @click="componente = 'Citacoes'">Citações</button>
             <button v-else @click="componente = 'Sobre'">Sobre</button>
         </span>
-        <component :is="componente"></component>
+
+        <keep-alive>
+             <component :is="componente"></component>
+        </keep-alive>
+        
 	</div>
 </template>
 
