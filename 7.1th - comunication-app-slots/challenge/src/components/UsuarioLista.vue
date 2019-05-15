@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="usuario in usuarios" :key="usuario.id">
+        <tr v-for="(usuario, i) in usuarios" :key="usuario.id" @click='setUser(usuario[i])'>
           <td>{{ usuario.id }}</td>
           <td>{{ usuario.nome }}</td>
         </tr>
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-    props: {usuarios: Array}
+    props: {usuarios: Array},
+    methods:{
+        setUser(usuario){
+            this.$emit('setUsuario', usuario)
+        }
+    }
 };
 </script>
 

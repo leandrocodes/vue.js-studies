@@ -10,7 +10,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props:{
+        usuario:Object
+    }
+};
 </script>
 
 <style>
