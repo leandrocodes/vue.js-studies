@@ -45,7 +45,8 @@ th, td{
     border-bottom: 1px solid #ccc;
 }
 tbody tr:hover{
-    background: #00000001
+    background: #0000001f;
+    cursor: pointer;
 }
 
 </style>
