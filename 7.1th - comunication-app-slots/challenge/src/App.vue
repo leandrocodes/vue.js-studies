@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <usuario-lista :usuarios="usuarios" @setUsuario="usuario"/>
-      <usuario-detalhe :usuarios="usuario"/>
+      <usuario-lista :usuarios="usuarios" @setUsuario="setUsuario"/>
+      <usuario-detalhe :usuario="usuario"/>
   </div>
 </template>
 
@@ -21,12 +21,15 @@ export default {
         { id: 5, nome: "Lia", idade: 28 }
       ],
       usuario:{
-          id: Number,
-          nome: String,
-          idade: Number
+          
       }
     }
   },
+  methods:{
+      setUsuario(usuario){
+          this.usuario = usuario
+      }
+  }
   }
 </script>
 
