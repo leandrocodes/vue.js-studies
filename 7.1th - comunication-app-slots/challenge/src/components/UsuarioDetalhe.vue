@@ -12,9 +12,9 @@
 <script>
 export default {
     props:{
-        usuario:Object
+        usuario: Object
     }
-};
+}
 </script>
 
 <style>

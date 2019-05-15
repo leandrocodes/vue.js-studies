@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <usuario-lista :usuarios="usuarios" @setUsuario="usuario"/>
-      <usuario-detalhe :usuarios="usuarios"/>
+      <usuario-detalhe :usuarios="usuario"/>
   </div>
 </template>
 
@@ -20,10 +20,14 @@ export default {
         { id: 4, nome: "Ema", idade: 17 },
         { id: 5, nome: "Lia", idade: 28 }
       ],
-      usuario: Object
-    };
+      usuario:{
+          id: Number,
+          nome: String,
+          idade: Number
+      }
+    }
+  },
   }
-};
 </script>
 
 <style>
