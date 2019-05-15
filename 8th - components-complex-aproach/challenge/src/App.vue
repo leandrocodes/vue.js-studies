@@ -1,14 +1,17 @@
 <template>
 	<div id="app">
 		<span>
-			<button class="vermelho">Carregar Componente Vermelho</button>
-			<button class="verde">Carregar Componente Verde</button>
-			<button class="azul">Carregar Componente Azul</button>
+			<button class="vermelho" @click="comp = 'Vermelho'">Carregar Componente Vermelho</button>
+			<button class="verde" @click="comp = 'Verde'">Carregar Componente Verde</button>
+			<button class="azul" @click="comp = 'Azul'">Carregar Componente Azul</button>
 		</span>
+
+        <keep-alive>
+            <component :is="comp">
+                Conteúdo do componente <h2>{{comp}}</h2>
+            </component>
+        </keep-alive>
 		
-		<Vermelho />
-		<Verde />
-		<Azul />
 	</div>
 </template>
 
@@ -19,7 +22,12 @@ import Azul from './components/Azul.vue'
 
 export default {
 	name: 'app',
-	components: { Vermelho, Verde, Azul },
+    components: { Vermelho, Verde, Azul },
+    data(){
+        return{
+            comp: ''
+        }
+    }
 }
 </script>
 
