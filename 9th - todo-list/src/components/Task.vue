@@ -1,6 +1,6 @@
 <template>
-    <div class="task" :class="stateClass">
-        <span @click="$emit('taskDeleted', task)" class="close">x</span>
+    <div class="task" :class="stateClass" @click="$emit('taskStateChanged', task)">
+        <span @click.stop="$emit('taskDeleted', task)" class="close">x</span>
         <p>{{task.name}}</p>
     </div>
 </template>
@@ -47,23 +47,21 @@ export default {
 }
 
 .done {
-    border-left: solid 8px #2E7D32;
-    background-color: #4CAF50;
+    border-left: solid 8px #2e7d32;
+    background-color: #4caf50;
     color: #ccc;
     text-decoration: line-through;
 }
 
-
-
-.pending .close{
+.pending .close {
     background-color: #c62828;
 }
 
-.done .close{
-    background-color: #2E7D32;
+.done .close {
+    background-color: #2e7d32;
 }
 
-.close{
+.close {
     position: absolute;
     right: 10px;
     top: 10px;
