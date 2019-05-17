@@ -18,10 +18,10 @@ export default {
             return {
                 pending: this.task.pending,
                 done: !this.task.pending
-            };
+            }
         }
     }
-};
+}
 </script>
 
 <style>

@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <h1>Tarefas</h1>
+        <tasks-progress :progress="progress"></tasks-progress>
         <new-task @taskAdded="addTask"></new-task>
         <task-grid :tasks="tasks" 
         @taskStateChanged="toggleTask"
@@ -12,17 +13,26 @@
 <script>
 import NewTask from "./components/NewTask"
 import TaskGrid from "./components/TaskGrid"
+import TasksProgress from "./components/TasksProgress"
 
 export default {
     components: {
         TaskGrid,
-        NewTask
+        NewTask,
+        TasksProgress
     },
     data() {
         return {
             tasks: []
         }
     },
+	computed: {
+		progress() {
+			const total = this.tasks.length
+			const done = this.tasks.filter(t => !t.pending).length
+			return Math.round(done / total * 100) || 0
+		}
+	},
     methods:{
         addTask(task){
             const sameName = t => t.name === task.name
@@ -38,7 +48,7 @@ export default {
             this.tasks.splice(this.tasks.indexOf(task), 1)
         },
         toggleTask(task){
-            const i = this.tasks.indexOf(task)
+            var i = this.tasks.indexOf(task)
             this.tasks[i].pending = !this.tasks[i].pending
         }
     }
