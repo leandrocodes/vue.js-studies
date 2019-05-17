@@ -14,8 +14,10 @@ export default {
     },
     methods:{
         add(){
-            this.$emit('taskAdded', {name: this.name})
-            this.name = ''
+            if(this.name !== ''){
+                this.$emit('taskAdded', {name: this.name})
+                this.name = ''
+            }
         }
     }
 }
