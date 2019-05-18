@@ -32,7 +32,15 @@ export default {
 			const done = this.tasks.filter(t => !t.pending).length
 			return Math.round(done / total * 100) || 0
 		}
-	},
+    },
+    watch:{
+        tasks:{
+            deep: true,
+            handler(){
+                localStorage.setItem('tasks', JSON.stringify(this.tasks))
+            }
+        }
+    },
     methods:{
         addTask(task){
             const sameName = t => t.name === task.name
@@ -50,7 +58,13 @@ export default {
         toggleTask(task){
             var i = this.tasks.indexOf(task)
             this.tasks[i].pending = !this.tasks[i].pending
-        }
+        },
+    },
+    created(){
+        console.log('criou')
+        const json = localStorage.getItem('tasks')
+        const array = JSON.parse(json)
+        this.tasks = Array.isArray(array) ? array : [] 
     }
 }
 </script>
