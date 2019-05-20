@@ -10,13 +10,7 @@
 				<!-- Email -->
 				<!-- Senha -->
 				<!-- Armazenar Dados? (Sim/Não) -->
-
-				<rotulo nome="Nome:">
-					<input type="text" v-model="nome">
-				</rotulo>
-				<rotulo nome="Sobrenome:">
-					<input type="text" v-model="sobrenome">
-				</rotulo>
+				<nome-completo v-model="nomeCompleto"></nome-completo>
 				<rotulo nome="Email:">
 					<input type="email" v-model="email">
 				</rotulo>
@@ -40,10 +34,10 @@
 			<div class="painel" v-else>
 				<div class="cabecalho">Resultado</div>
 				<rotulo nome="Nome:">
-					<span>{{ nome }}</span>
+					<span>{{ nomeCompleto.nome }}</span>
 				</rotulo>
 				<rotulo nome="Sobrenome:">
-					<span>{{ sobrenome }}</span>
+					<span>{{ nomeCompleto.sobrenome }}</span>
 				</rotulo>
 				<rotulo nome="Email:">
 					<span>{{ email }}</span>
@@ -60,24 +54,26 @@
 </template>
 
 <script>
-import Rotulo from "./components/Rotulo.vue";
-
+import Rotulo from "./components/Rotulo";
+import NomeCompleto from "./components/NomeCompleto";
 export default {
 	name: "app",
-	components: { Rotulo },
+	components: { Rotulo, NomeCompleto },
 	data() {
 		return {
+			nomeCompleto: {
+				nome: "",
+				sobrenome: ""
+			},
 			enviado: false,
-			nome: "",
-			sobrenome: "",
 			email: "",
 			senha: "",
 			armazenar: true
 		};
 	},
-	methods:{
-		enviar(){
-			this.enviado = true
+	methods: {
+		enviar() {
+			this.enviado = true;
 		}
 	}
 };
