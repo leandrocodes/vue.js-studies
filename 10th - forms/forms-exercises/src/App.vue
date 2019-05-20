@@ -26,13 +26,13 @@
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
 					<span class="mr-4">
-						<input type="radio"> Web
+						<input type="radio" value="web" v-model="produto"> Web
 					</span>
 					<span class="mr-4">
-						<input type="radio"> Mobile
+						<input type="radio" value="mobile" v-model="produto"> Mobile
 					</span>
 					<span>
-						<input type="radio"> Outro
+						<input type="radio" value="outro" v-model="produto"> Outro
 					</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
@@ -49,13 +49,19 @@
 			<div class="painel">
 				<div class="cabecalho">Resultado</div>
 				<Rotulo nome="E-mail">
-					<span>{{usuario.email}}</span>
+					<span>
+						{{usuario.email}}
+					</span>
 				</Rotulo>
 				<Rotulo nome="Senha">
-					<span>{{usuario.senha}}</span>
+					<span>
+						{{usuario.senha}}
+					</span>
 				</Rotulo>
 				<Rotulo nome="Idade">
-					<span>{{usuario.idade}}</span>
+					<span>
+						{{usuario.idade}}
+					</span>
 				</Rotulo>
 				<Rotulo nome="Mensagem">
 					<span style="white-space: pre;">{{mensagem}}</span>
@@ -63,12 +69,14 @@
 				<Rotulo nome="Características do Problema">
 					<span>
 						<ul>
-							<li v-for="c in caracteristicas" :key="c"> {{c}} </li>
+							<li v-for="c in caracteristicas" :key="c">{{c}}</li>
 						</ul>
 					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span>???</span>
+					<span>
+						{{produto}}
+					</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<span>???</span>
@@ -90,6 +98,7 @@ export default {
 	components: { Rotulo, Escolha },
 	data() {
 		return {
+			produto: "web",
 			mensagem: "",
 			caracteristicas: [],
 			usuario: {
