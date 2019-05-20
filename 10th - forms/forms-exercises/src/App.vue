@@ -5,10 +5,10 @@
 			<form class="painel">
 				<div class="cabecalho">Formulário</div>
 				<Rotulo nome="E-mail">
-					<input type="text" v-model="usuario.email">
+					<input type="text" v-model.lazy.trim="usuario.email">
 				</Rotulo>
 				<Rotulo nome="Senha">
-					<input type="password" v-model="usuario.senha">
+					<input type="password" v-model.number="usuario.senha">
 				</Rotulo>
 				<Rotulo nome="Idade">
 					<input type="number" v-model="usuario.idade">
