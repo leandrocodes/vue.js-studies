@@ -14,24 +14,34 @@
 					<input type="number" v-model="usuario.idade">
 				</Rotulo>
 				<Rotulo nome="Mensagem">
-					<textarea name="" cols="30" rows="5" v-model="mensagem"></textarea>
+					<textarea name cols="30" rows="5" v-model="mensagem"></textarea>
 				</Rotulo>
 				<Rotulo nome="Características do Problema">
-					<span class="mr-4"><input type="checkbox" value="reproduzivel"> Reproduzível</span>
-					<span><input type="checkbox" value="intermitente"> Intermitente</span>
+					<span class="mr-4">
+						<input type="checkbox" value="reproduzivel" v-model="caracteristicas"> Reproduzível
+					</span>
+					<span>
+						<input type="checkbox" value="intermitente" v-model="caracteristicas"> Intermitente
+					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span class="mr-4"><input type="radio"> Web</span>
-					<span class="mr-4"><input type="radio"> Mobile</span>
-					<span><input type="radio"> Outro</span>
+					<span class="mr-4">
+						<input type="radio"> Web
+					</span>
+					<span class="mr-4">
+						<input type="radio"> Mobile
+					</span>
+					<span>
+						<input type="radio"> Outro
+					</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<select name="" id="">
+					<select name id>
 						<option></option>
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<Escolha />
+					<Escolha/>
 				</Rotulo>
 				<hr>
 				<button>Enviar</button>
@@ -42,16 +52,20 @@
 					<span>{{usuario.email}}</span>
 				</Rotulo>
 				<Rotulo nome="Senha">
-					<span> {{usuario.senha}} </span>
+					<span>{{usuario.senha}}</span>
 				</Rotulo>
 				<Rotulo nome="Idade">
-					<span> {{usuario.idade}} </span>
+					<span>{{usuario.idade}}</span>
 				</Rotulo>
 				<Rotulo nome="Mensagem">
 					<span style="white-space: pre;">{{mensagem}}</span>
 				</Rotulo>
-				<Rotulo nome="Marque as Opções">
-					<span>???</span>
+				<Rotulo nome="Características do Problema">
+					<span>
+						<ul>
+							<li v-for="c in caracteristicas" :key="c"> {{c}} </li>
+						</ul>
+					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
 					<span>???</span>
@@ -68,18 +82,19 @@
 </template>
 
 <script>
-import Rotulo from './components/Rotulo.vue'
-import Escolha from './components/Escolha.vue'
+import Rotulo from "./components/Rotulo.vue"
+import Escolha from "./components/Escolha.vue"
 
 export default {
-	name: 'app',
+	name: "app",
 	components: { Rotulo, Escolha },
-	data(){
-		return{
-			mensagem: '',
-			usuario:{
+	data() {
+		return {
+			mensagem: "",
+			caracteristicas: [],
+			usuario: {
 				//javascript gera os atributos dinamicamente!!
-			/* 	email: '',
+				/* 	email: '',
 				senha: '',
 				idade: '', */
 			}
@@ -89,13 +104,12 @@ export default {
 </script>
 
 <style>
-
 body {
-	background-color: #ECECEC;
+	background-color: #ececec;
 }
 
 #app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
@@ -111,16 +125,16 @@ body {
 
 .painel {
 	flex: 1;
-	background: #FFF;
+	background: #fff;
 	margin: 0px 10px;
 	padding: 20px;
-	border: 1px solid #AAA;
+	border: 1px solid #aaa;
 	border-radius: 5px;
 }
 
 .painel .cabecalho {
 	width: 100%;
-	background-color: #DDD;
+	background-color: #ddd;
 	padding: 10px 0px;
 	border-radius: 5px;
 	font-size: 1.4rem;
@@ -132,8 +146,8 @@ body {
 	padding: 10px 20px;
 	font-size: 1.4rem;
 	border-radius: 5px;
-	color: #FFF;
-	background-color: #2196F3;
+	color: #fff;
+	background-color: #2196f3;
 }
 
 #app h1 {
