@@ -37,13 +37,15 @@
 				</Rotulo>
 				<Rotulo nome="Prioridade">
 					<select v-model="prioridade">
-						<option v-for="prioridade in prioridades" :key="prioridade.codigo" :value="prioridade.codigo">
-							{{prioridade.nome}}
-						</option>
+						<option
+							v-for="prioridade in prioridades"
+							:key="prioridade.codigo"
+							:value="prioridade.codigo"
+						>{{prioridade.nome}}</option>
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<Escolha/>
+					<Escolha v-model="escolha"/>
 				</Rotulo>
 				<hr>
 				<button>Enviar</button>
@@ -51,19 +53,13 @@
 			<div class="painel">
 				<div class="cabecalho">Resultado</div>
 				<Rotulo nome="E-mail">
-					<span>
-						{{usuario.email}}
-					</span>
+					<span>{{usuario.email}}</span>
 				</Rotulo>
 				<Rotulo nome="Senha">
-					<span>
-						{{usuario.senha}}
-					</span>
+					<span>{{usuario.senha}}</span>
 				</Rotulo>
 				<Rotulo nome="Idade">
-					<span>
-						{{usuario.idade}}
-					</span>
+					<span>{{usuario.idade}}</span>
 				</Rotulo>
 				<Rotulo nome="Mensagem">
 					<span style="white-space: pre;">{{mensagem}}</span>
@@ -76,17 +72,13 @@
 					</span>
 				</Rotulo>
 				<Rotulo nome="Qual produto?">
-					<span>
-						{{produto}}
-					</span>
+					<span>{{produto}}</span>
 				</Rotulo>
 				<Rotulo nome="Prioridade">
-					<span>
-						{{prioridade}}	
-					</span>
+					<span>{{prioridade}}</span>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<span>???</span>
+					<span> {{escolha}} </span>
 				</Rotulo>
 			</div>
 		</div>
@@ -94,8 +86,8 @@
 </template>
 
 <script>
-import Rotulo from "./components/Rotulo.vue"
-import Escolha from "./components/Escolha.vue"
+import Rotulo from "./components/Rotulo.vue";
+import Escolha from "./components/Escolha.vue";
 
 export default {
 	name: "app",
@@ -112,14 +104,15 @@ export default {
 				idade: '', */
 			},
 			prioridade: 1,
-			prioridades:[
-				{codigo: 1, nome: 'Baixa'},
-				{codigo: 2, nome: 'Moderada'},
-				{codigo: 3, nome: 'Alta'}
-			]
-		}
+			prioridades: [
+				{ codigo: 1, nome: "Baixa" },
+				{ codigo: 2, nome: "Moderada" },
+				{ codigo: 3, nome: "Alta" }
+			],
+			escolha: false
+		};
 	}
-}
+};
 </script>
 
 <style>
