@@ -1,6 +1,6 @@
 <template>
     <div class="rotulo">
-        <label>{{ nome }}:</label>
+        <label>{{ nome }}</label>
         <div class="elemento">
             <slot></slot>
         </div>
