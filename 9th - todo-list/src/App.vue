@@ -61,7 +61,6 @@ export default {
         },
     },
     created(){
-        console.log('criou')
         const json = localStorage.getItem('tasks')
         const array = JSON.parse(json)
         this.tasks = Array.isArray(array) ? array : [] 
