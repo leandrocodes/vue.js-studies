@@ -7,7 +7,10 @@
         ++ add
     </button>
     <ul>
-        <li v-for="item in items">{{item.name}}</li>
+        <li v-for="(item, index) in items">
+            {{item.name}}
+            <button @click="deleteItem"> -- </button>
+        </li>
     </ul>
 </div>
 
@@ -27,6 +30,9 @@
             addItem(){
                 this.items.push({name: this.newItem})
                 this.newItem = ''
+            },
+            deleteItem(){
+                this.items.splice(this.index, 1)
             }
         }
     })
