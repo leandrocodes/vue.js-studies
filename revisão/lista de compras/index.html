@@ -1,0 +1,33 @@
+<script src="https://unpkg.com/vue"></script>
+
+
+<div id="app">
+    <input v-model="newItem" @keyup.enter="addItem" >
+    <button @click="addItem">
+        ++ add
+    </button>
+    <ul>
+        <li v-for="item in items">{{item.name}}</li>
+    </ul>
+</div>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            items: [
+                {name: 'abacaxi'},
+                {name: 'sabão'},
+                {name: 'macarrão'}
+            ],
+            newItem: ''
+        },
+        methods:{
+            addItem(){
+                this.items.push({name: this.newItem})
+                this.newItem = ''
+            }
+        }
+    })
+</script>
