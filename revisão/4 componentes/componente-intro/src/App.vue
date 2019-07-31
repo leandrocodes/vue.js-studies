@@ -1,19 +1,18 @@
 <template>
-	<div class="container">
-		<h1>Contadores</h1>
-		<p>{{contador}}</p>
-	</div>
+<div id="app">
+    <h1>Contadores</h1>
+    <app-contador></app-contador>
+</div>
 </template>
 
 <script>
+import Contador from "./Contador.vue"
 export default {
-	data() {
-		return {
-			contador: 0
-		}
-	}
+    data() {
+    }
 }
 </script>
 
 <style>
+
 </style>
