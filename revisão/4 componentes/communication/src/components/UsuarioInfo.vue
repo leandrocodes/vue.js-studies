@@ -8,7 +8,9 @@
 
 <script>
 export default {
-    props:['usuarioNome'],
+    props:{
+        usuarioNome: String
+    },
     methods: {
         inverterNome(){
             return this.usuarioNome.split('').reverse().join('')
