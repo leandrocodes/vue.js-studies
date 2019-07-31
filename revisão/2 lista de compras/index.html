@@ -1,0 +1,45 @@
+<script src="https://unpkg.com/vue"></script>
+<script src="https://kit.fontawesome.com/ac8cf42b03.js"></script>
+
+<div id="app">
+    <input v-model="newItem" @keyup.enter="addItem">
+    <button @click="addItem">
+        <i class="fas fa-plus-circle" style="color: green"></i>
+    </button>
+    <ul>
+        <li v-for="(item, index) in items">
+            {{item.name}}
+            <button @click="deleteItem(index)"> <i class="fas fa-trash" style="color: red"></i> </button>
+        </li>
+    </ul>
+</div>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            items: [
+                { name: 'abacaxi' },
+                { name: 'sabão' },
+                { name: 'macarrão' }
+            ],
+            newItem: ''
+        },
+        methods: {
+            addItem() {
+                this.items.push({ name: this.newItem })
+                this.newItem = ''
+            },
+            deleteItem(index){
+                this.items.splice(index, 1);
+            }
+        }
+    })
+</script>
+
+<style>
+    li {
+        margin: 15px;
+    }
+</style>

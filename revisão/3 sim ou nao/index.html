@@ -1,0 +1,55 @@
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<div id="app">
+    <p>
+        Faça uma pergunta de sim ou não:
+        <input type="text" v-model="question">
+    </p>
+
+    <p>
+        {{ answer }}
+    </p>
+</div>
+
+
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            question: '',
+            answer: "Eu não posso responder até que você faça uma pergunta!"
+        },
+        watch: {
+            question(newQuestion, oldQuestion) {
+                this.answer = 'Esperando você terminar de escrever...'
+                this.debouncedGetAnswer()
+            }
+        },
+        created: function() {
+            this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+        },
+        methods: {
+            getAnswer() {
+                if (this.question.indexOf('?') === -1) {
+                    this.answer = 'Perguntas precisam de ponto de interrogação: ' + '?'
+                    return
+                }
+                this.answer = 'Pensando...'
+                var vm = this
+                axios.get('https://yesno.wtf/api')
+                    .then(function (response) {
+                        vm.answer = response.data.answer === 'yes' ? 'Sim.' :
+                            response.data.answer === 'no' ? 'Não.' : 'Talvez!'
+                    })
+                    .catch(function (error) {
+                        vm.answer = 'Erro! Não pode executar a API.' + error
+                    })
+            }
+        }
+    })
+</script>
