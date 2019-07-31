@@ -9,7 +9,10 @@
 <script>
 export default {
     props:{
-        usuarioNome: String
+        usuarioNome: {
+            type: String,
+            required: true
+        }
     },
     methods: {
         inverterNome(){
