@@ -3,6 +3,7 @@
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Nome do usuário: {{ inverterNome() }} </p>
+        <p>Idade: {{ usuarioIdade }} </p>
         <button @click="reiniciarNome">Reiniciar Nome</button>
         <button @click="reiniciarFn">Reiniciar</button>
     </div>
@@ -13,6 +14,10 @@ export default {
     props:{
         usuarioNome: {
             type: String,
+            required: true
+        },
+        usuarioIdade:{
+            type: Number,
             required: true
         },
         reiniciarFn: Function
