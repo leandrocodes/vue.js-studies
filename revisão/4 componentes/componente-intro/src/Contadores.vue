@@ -1,10 +1,7 @@
 <template>
     <div class="contadores">
-        <contador></contador> 
-        <contador></contador> 
-        <contador></contador> 
-        <contador></contador> 
-        <contador></contador> 
+        <contador v-for="c in 5" :key="c"></contador> 
+
     </div>
 </template>
 
