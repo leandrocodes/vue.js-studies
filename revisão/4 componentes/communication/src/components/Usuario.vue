@@ -6,7 +6,7 @@
         <button @click="alterarNome">Alterar Nome</button>
         <hr>
         <div class="componentes">
-            <app-usuario-info :usuarioNome="nome" @nomeMudou="nome = $event"/>
+            <app-usuario-info :usuarioNome="nome" @nomeMudou="nome = $event" :reiniciarFn="reiniciarNome" />
             <app-usuario-editar />
         </div>
     </div>
@@ -26,6 +26,9 @@ export default {
     methods:{
         alterarNome(){
             this.nome = 'Ana'
+        },
+        reiniciarNome(){
+            this.nome = 'Pedro'
         }
     }
 }
