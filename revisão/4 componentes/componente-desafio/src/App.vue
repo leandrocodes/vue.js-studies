@@ -4,12 +4,8 @@
     <Menu></Menu>
 	<Toolbar></Toolbar>
 	<Carousel></Carousel>
+	<Footer></Footer>
 
-
-    <v-footer class="pa-3" app>
-        <v-spacer></v-spacer>
-        <div>Curso Vue &copy; {{ new Date().getFullYear() }}</div>
-    </v-footer>
 </v-app>
 </template>
 
@@ -17,13 +13,15 @@
 import Menu from './Menu'
 import Toolbar from './Toolbar'
 import Carousel from './Carousel'
+import Footer from './Footer'
 
 export default {
 
     components: {
 		Menu,
 		Toolbar,
-		Carousel
+		Carousel,
+		Footer
     },
 
 }
