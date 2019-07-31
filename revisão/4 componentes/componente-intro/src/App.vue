@@ -1,12 +1,11 @@
 <template>
 <div id="app">
     <h1>Contadores</h1>
-    <app-contador></app-contador>
+    <app-contadores></app-contadores>
 </div>
 </template>
 
 <script>
-import Contador from "./Contador.vue"
 export default {
     data() {
     }
