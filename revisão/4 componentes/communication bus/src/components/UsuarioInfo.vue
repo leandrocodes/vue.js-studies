@@ -32,7 +32,7 @@ export default {
         }
     },
     created(){
-        barramento.$on('idadeMudou', usuarioIdade =>{
+        barramento.qndIdadeMudar(usuarioIdade=>{
             this.usuarioIdade = usuarioIdade
         })
     }
