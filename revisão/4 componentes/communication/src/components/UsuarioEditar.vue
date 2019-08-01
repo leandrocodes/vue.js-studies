@@ -17,8 +17,9 @@ export default {
     },
     methods: {
         mudarIdade() {
-            var idadetxt = this.usuarioIdade++
-            this.$emit('idadeMudou', idadetxt)
+            var userage = this.usuarioIdade
+            userage++
+            this.$emit('idadeMudou', userage)
         }
     }
 }
