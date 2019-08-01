@@ -4,11 +4,12 @@
             <button @click="numero--">&lt;</button>
             <button @click="numero++">&gt;</button>
         </span>
-        {{ numero }} {{ indice }}
+        <citacao :citacao="citacoes[indice]"></citacao>
     </div>
 </template>
 
 <script>
+import citacao from './Citacao'
 export default {
     data() {
         return {
@@ -32,7 +33,10 @@ export default {
         indice() {
             return Math.abs(this.numero % 3)
         }
-    }
+    },
+     components:{
+         citacao
+     }
 }
 </script>
 

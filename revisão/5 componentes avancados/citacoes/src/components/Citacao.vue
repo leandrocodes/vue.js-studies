@@ -1,12 +1,29 @@
 <template>
     <div class="citacao">
-        
+        <p>
+            {{citacao.texto}}
+        </p>
+
+        <p>
+            {{citacao.fonte}}
+        </p>
+
+        <p>
+            {{citacao.autor}}
+        </p>
+
     </div>
 </template>
 
 <script>
 export default {
-
+    props:{
+        citacao:{
+            fonte: String,
+            texto: String,
+            autor: String
+        }
+    }
 }
 </script>
 
