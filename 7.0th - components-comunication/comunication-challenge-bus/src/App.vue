@@ -21,9 +21,9 @@ export default {
         { id: 4, nome: "Ema", idade: 17 },
         { id: 5, nome: "Lia", idade: 28 }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style>
