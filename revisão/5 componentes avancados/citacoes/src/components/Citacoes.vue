@@ -4,7 +4,12 @@
             <button @click="numero--">&lt;</button>
             <button @click="numero++">&gt;</button>
         </span>
-        <citacao :citacao="citacoes[indice]"></citacao>
+        <!-- melhor do que passar a prop por aqui (:citacao='citacoes[indice]')-->
+        <citacao>
+            <p>{{citacoes[indice].texto}}</p>
+            <p>{{citacoes[indice].fonte}}</p>
+            <p>{{citacoes[indice].autor}}</p>
+        </citacao>
     </div>
 </template>
 

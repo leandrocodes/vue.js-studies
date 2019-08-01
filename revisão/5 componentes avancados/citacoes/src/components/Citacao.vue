@@ -1,6 +1,6 @@
 <template>
     <div class="citacao">
-        <p>
+       <!--  <p>
             {{citacao.texto}}
         </p>
 
@@ -10,20 +10,20 @@
 
         <p>
             {{citacao.autor}}
-        </p>
-
+        </p> -->
+    <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    props:{
+/*     props:{
         citacao:{
             fonte: String,
             texto: String,
             autor: String
         }
-    }
+    } */
 }
 </script>
 
