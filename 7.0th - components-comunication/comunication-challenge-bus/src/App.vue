@@ -19,11 +19,11 @@ export default {
         { id: 2, nome: "Carlos", idade: 22 },
         { id: 3, nome: "Daniel", idade: 40 },
         { id: 4, nome: "Ema", idade: 17 },
-        { id: 5, nome: "Lia", idade: 28 }
-      ]
-    }
+        { id: 5, nome: "Lia", idade: 28 }]
+    };
   }
-}
+};
+
 </script>
 
 <style>
