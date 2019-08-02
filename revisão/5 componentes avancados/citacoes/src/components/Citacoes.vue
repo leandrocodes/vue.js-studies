@@ -6,7 +6,7 @@
 		</span>
 		<!-- melhor do que passar a prop por aqui (:citacao='citacoes[indice]')-->
 		<citacao>
-			<p slot="autor">Autor: </p>
+			<p slot="autor">Autor:</p>
 			<p slot="autor">{{citacoes[indice].autor}}</p>
 			<p>{{citacoes[indice].texto}}</p>
 			<p slot="fonte">{{citacoes[indice].fonte}}</p>
