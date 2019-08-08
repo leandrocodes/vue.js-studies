@@ -2,11 +2,13 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<TaskGrid :tasks="tasks"></TaskGrid>
+		<NewTask @taskAdded="addTask"></NewTask>
 	</div>
 </template>
 
 <script>
 import TaskGrid from './components/TaskGrid'
+import NewTask from './components/NewTask'
 export default {
 	data(){
 		return{
@@ -17,7 +19,20 @@ export default {
 		}
 	},
 	components:{
-		TaskGrid
+		TaskGrid,
+		NewTask
+	},
+	methods:{
+		addTask(task){
+			const sameName = t => t.name === task.name
+			const reallyNew = this.tasks.filter(sameName).length == 0
+			if(reallyNew){
+				this.tasks.push({
+					name: task.name,
+					pending: task.pending || true
+				})
+			}
+		}
 	}
 }
 </script>
