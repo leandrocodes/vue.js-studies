@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
 		<h1>Tarefas</h1>
-		<TaskGrid :tasks="tasks"></TaskGrid>
 		<NewTask @taskAdded="addTask"></NewTask>
+		<TaskGrid :tasks="tasks"></TaskGrid>
 	</div>
 </template>
 
