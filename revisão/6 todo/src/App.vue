@@ -28,10 +28,8 @@ export default {
 	computed:{
 		progress(){
 			const total = this.tasks.length
-			if(total){
-				const done = this.tasks.filter(t=> !t.pending)
-				return Math.round(done/total * 100)
-			}
+			const done = this.tasks.filter(t=> !t.pending).length
+			return Math.round(done/total * 100) || 0
 		}
 	},
 	methods:{
