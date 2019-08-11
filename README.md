@@ -1,2 +1,2 @@
 ### Vue.js
-My roadmap in Vue,js Framework
+My roadmap in Vue.js Framework
