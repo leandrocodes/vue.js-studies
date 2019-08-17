@@ -2,6 +2,7 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
+		<p>{{usuarioLogado}}</p>
 		<p>{{ CPF | filtroCPF | inverter }}</p>
 		<input type="text" :value="CPF | filtroCPF | inverter">
 		<hr>
@@ -21,8 +22,9 @@
 <script>
 import Frutas from './Frutas'
 import frutasMixins from './frutasMixins'
+import usuarioMixins from './usuarioMixins'
 export default {
-	mixins:[frutasMixins],
+	mixins:[frutasMixins, usuarioMixins],
 	filters:{
 		filtroCPF(valor){
 			const arr = valor.split('')
@@ -36,10 +38,11 @@ export default {
 		return{
 			CPF: '00100200304'
 		}
-	},
-	methods:{
-		
     },
+	created(){
+		// eslint-disable-next-line no-console
+        console.log('created app.vue')
+	},
 	components:{
 		Frutas
 	}
