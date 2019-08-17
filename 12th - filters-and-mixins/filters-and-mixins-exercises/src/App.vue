@@ -20,7 +20,9 @@
 
 <script>
 import Frutas from './Frutas'
+import frutasMixins from './frutasMixins'
 export default {
+	mixins:[frutasMixins],
 	filters:{
 		filtroCPF(valor){
 			const arr = valor.split('')
@@ -32,16 +34,11 @@ export default {
 	},
 	data(){
 		return{
-			CPF: '00100200304',
-			fruta: '',
-            frutas: ['banana', 'manga', 'maçã']
+			CPF: '00100200304'
 		}
 	},
 	methods:{
-        add(){
-            this.frutas.push(this.fruta)
-            this.fruta = ''
-        }
+		
     },
 	components:{
 		Frutas
