@@ -4,10 +4,22 @@
 		<hr>
 		<p>{{ CPF | filtroCPF | inverter }}</p>
 		<input type="text" :value="CPF | filtroCPF | inverter">
+		<hr>
+		<Frutas></Frutas>
+		
+		<hr>
+		
+		<div>
+			<ul>
+				<li v-for="fruta in frutas" :key="fruta"> {{ fruta }} </li>
+			</ul>
+			<input type="text" v-model="fruta" @keydown.enter="add">
+		</div>
 	</div>
 </template>
 
 <script>
+import Frutas from './Frutas'
 export default {
 	filters:{
 		filtroCPF(valor){
@@ -20,8 +32,19 @@ export default {
 	},
 	data(){
 		return{
-			CPF: '00100200304'
+			CPF: '00100200304',
+			fruta: '',
+            frutas: ['banana', 'manga', 'maçã']
 		}
+	},
+	methods:{
+        add(){
+            this.frutas.push(this.fruta)
+            this.fruta = ''
+        }
+    },
+	components:{
+		Frutas
 	}
 }
 </script>
