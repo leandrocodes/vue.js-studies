@@ -9,8 +9,9 @@
 
 <script>
 import frutasMixins from './frutasMixins'
+import usuarioMixins from './usuarioMixins'
 export default {
-    mixins:[frutasMixins],
+    mixins:[frutasMixins, usuarioMixins],
 	created(){
 		// eslint-disable-next-line no-console
         console.log('created frutas.vue')
