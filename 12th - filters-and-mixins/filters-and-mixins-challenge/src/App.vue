@@ -21,11 +21,14 @@
 
 		<!-- Exercício 4 -->
 		<!-- Compartilhe a propriedade computada via mixin -->
+		
 	</div>
 </template>
 
 <script>
+import frasesMixin from './fraseMixin'
 export default {
+	mixins: [frasesMixin],
 	data(){
 		return{
 			frase: 'Leandro Viana Martins',
@@ -38,14 +41,7 @@ export default {
 			return newString
 		}
 	},
-	computed:{
-		espacoPorVirgulaComputada(){
-			return this.fraseComputada.replace(/ /g, ", ");
-		},
-		contadorStringComputada(){
-			return this.fraseComputada.split(' ').map(p => `${p} (${p.length})`).join(', ')
-		}
-	}
+
 }
 </script>
 
