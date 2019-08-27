@@ -18,6 +18,7 @@
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
 		<p>{{espacoPorVirgulaComputada}}</p>
 		<p>{{contadorStringComputada}}</p>
+
 		<!-- Exercício 4 -->
 		<!-- Compartilhe a propriedade computada via mixin -->
 	</div>
