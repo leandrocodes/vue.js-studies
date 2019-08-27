@@ -8,11 +8,20 @@ Vue.filter('inverter', (valor)=>{
 })
 
 Vue.mixin({
+	data(){
+		return{
+			global: 'Usando Mixin Global'
+		}
+	},
 	created(){
 		console.log('created mixin global')
 	}
 })
 
 new Vue({
-	render: h => h(App)
+	render: h => h(App),
+	created(){
+		console.log('created vue instance')
+	}
+
 }).$mount('#app')

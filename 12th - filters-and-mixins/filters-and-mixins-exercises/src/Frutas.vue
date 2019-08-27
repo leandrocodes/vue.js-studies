@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>{{global}}</h1>
         <ul>
             <li v-for="fruta in frutas" :key="fruta"> {{ fruta }} </li>
         </ul>
