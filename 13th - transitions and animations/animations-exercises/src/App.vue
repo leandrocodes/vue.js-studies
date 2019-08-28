@@ -54,4 +54,12 @@ export default {
 	to{transform: translateY(40px);}
 }
 
+.slide-enter-active{
+	animation: slide-in .3s ease
+}
+
+.slide-leave-active{
+	animation: slide-out .3s ease
+}
+
 </style>
