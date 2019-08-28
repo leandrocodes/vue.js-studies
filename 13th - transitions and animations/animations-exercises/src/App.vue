@@ -3,7 +3,7 @@
         <h1>Animações</h1>
         <hr />
         <b-button variant="primary" class="mb-4" @click="exibir = !exibir">Mostrar Mensagem</b-button>
-<!-- 
+
         <transition name="fade" appear>
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
@@ -12,24 +12,35 @@
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
 
-        <transition
-			enter-active-class="animated bounce"
-			leave-active-class="animated shake"
-			appear
-		>
+        <transition enter-active-class="animated bounce" leave-active-class="animated shake" appear>
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
-        </transition> -->
-		<hr>
-		<b-select v-model="tipoAnim" class="mb-4">
-			<option value="fade">Fade</option>
-			<option value="slide">slide</option>
-		</b-select>
+        </transition>
+        <hr />
 
-		<transition :name="tipoAnim" mode="out-in">
+        <b-select v-model="tipoAnim" class="mb-4">
+            <option value="fade">Fade</option>
+            <option value="slide">slide</option>
+        </b-select>
+
+        <transition :name="tipoAnim" mode="out-in">
             <b-alert variant="info" show v-if="exibir" key="info">{{ msg }}</b-alert>
             <b-alert variant="warning" show v-else key="warn">{{ msg }}</b-alert>
         </transition>
 
+        <hr />
+        <b-button variant="primary" class="mb-4" @click="exibir2 = !exibir2">Mostrar</b-button>
+        <transition
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @enter-cancelled="enterCancelled"
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterLeave"
+            @leave-cancelled="leaveCancelled"
+        >
+            <div v-if="exibir2" class="caixa"></div>
+        </transition>
     </div>
 </template>
 
@@ -38,10 +49,39 @@ export default {
     data() {
         return {
             msg: "Mensagem de Usuário Aqui!",
-			exibir: false,
-			tipoAnim: 'fade'
+            exibir: false,
+            exibir2: true,
+            tipoAnim: "fade"
         }
-    }
+	},
+	methods:{
+		beforeEnter(el){
+			console.log('before enter')
+		},
+		enter(el, done){
+			console.log('enter')
+			done()
+		},
+		afterEnter(el){
+			console.log('after enter')
+		},
+		enterCancelled(el){
+			console.log('enter cancelled')
+		},
+		beforeLeave(el){
+			console.log('before leave')
+		},
+		leave(el, done){
+			console.log('leave')
+			done()
+		},
+		afterLeave(el){
+			console.log('after leave')
+		},
+		leaveCancelled(el){
+			console.log('leave cancelled')
+		},
+	}
 }
 </script>
 
@@ -55,37 +95,52 @@ export default {
     margin-top: 60px;
     font-size: 1.5rem;
 }
-
-.fade-enter, .fade-leave-to {
+.caixa {
+    height: 100px;
+    width: 300px;
+    margin: 30px auto;
+    background-color: #2c3e50;
+}
+.fade-enter,
+.fade-leave-to {
     opacity: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity 2s;
 }
 
 @keyframes slide-in {
-	from{transform: translateY(40px);}
-	to{transform: translateY(0px);}
+    from {
+        transform: translateY(40px);
+    }
+    to {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes slide-out {
-	from{transform: translateY(0px);}
-	to{transform: translateY(40px);}
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(40px);
+    }
 }
 
-.slide-enter-active{
-	animation: slide-in 2s ease;
-	transition: opacity 2s;
+.slide-enter-active {
+    animation: slide-in 2s ease;
+    transition: opacity 2s;
 }
 
-.slide-leave-active{
-	animation: slide-out 2s ease;
-	transition: opacity 2s;
+.slide-leave-active {
+    animation: slide-out 2s ease;
+    transition: opacity 2s;
 }
 
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
     opacity: 0;
 }
-
 </style>
