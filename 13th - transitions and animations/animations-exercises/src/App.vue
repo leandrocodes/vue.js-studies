@@ -41,24 +41,23 @@
         <hr />
 
         <div class="mb-4">
-            <b-button  variant="info" class="mb-4 mr-2" @click="selComponent='InfoAlert'">Info</b-button>
-            <b-button  variant="warning" class="mb-4 mr-2" @click="selComponent='AlertAdv'">Adv</b-button>
+            <b-button variant="info" class="mb-4 mr-2" @click="selComponent='InfoAlert'">Info</b-button>
+            <b-button variant="warning" class="mb-4 mr-2" @click="selComponent='AlertAdv'">Adv</b-button>
         </div>
-		<transition name="fade" mode="out-in">
-			<component :is="selComponent"></component>
-		</transition>
+        <transition name="fade" mode="out-in">
+            <component :is="selComponent"></component>
+        </transition>
 
-		<hr>
-		<br>
-		<hr>
+        <hr />
+        <br />
+        <hr />
 
-		<b-button class="mb-4" variant="success" @click="adicionarAluno">Adicionar Aluno</b-button>
-		<b-list-group>
-			<b-list-group-item @click="removerAluno(index)" v-for="(aluno, index) in alunos" :key="index">
-				{{aluno}}
-			</b-list-group-item>
-		</b-list-group>
-
+        <b-button class="mb-4" variant="success" @click="adicionarAluno">Adicionar Aluno</b-button>
+        <transition-group name="fade">
+            <b-list-group v-for="(aluno, index) in alunos" :key="index">
+                <b-list-group-item @click="removerAluno(index)">{{aluno}}</b-list-group-item>
+            </b-list-group>
+        </transition-group>
     </div>
 </template>
 
@@ -78,18 +77,20 @@ export default {
             exibir2: true,
             tipoAnim: "fade",
             larguraBase: 0,
-			selComponent: "InfoAlert",
-			alunos: ['Leandro', 'Cláudio', 'Taina', 'Daniel', 'Thiago']
+            selComponent: "InfoAlert",
+            alunos: ["Leandro", "Cláudio", "Taina", "Daniel", "Thiago"]
         }
     },
     methods: {
-		adicionarAluno(){
-			const s = Math.random().toString(36).substring(2)
-			this.alunos.push(s)
-		},
-		removerAluno(indice){
-			this.alunos.splice(indice, 1)
-		},
+        adicionarAluno() {
+            const s = Math.random()
+                .toString(36)
+                .substring(2)
+            this.alunos.push(s)
+        },
+        removerAluno(indice) {
+            this.alunos.splice(indice, 1)
+        },
         animar(el, done, negativo) {
             let rodada = 1
             const temp = setInterval(() => {
@@ -183,6 +184,8 @@ export default {
 }
 
 .slide-leave-active {
+    position: absolute;
+    width: 100%;
     animation: slide-out 2s ease;
     transition: opacity 2s;
 }
@@ -190,5 +193,9 @@ export default {
 .slide-enter,
 .slide-leave-to {
     opacity: 0;
+}
+
+.slide-move {
+    transition: transform 1s;
 }
 </style>
