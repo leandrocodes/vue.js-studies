@@ -30,7 +30,7 @@
         <hr />
         <b-button variant="primary" class="mb-4" @click="exibir2 = !exibir2">Alternar</b-button>
         <transition
-			:css="false"
+            :css="false"
             @before-enter="beforeEnter"
             @enter="enter"
             @before-leave="beforeLeave"
@@ -38,60 +38,79 @@
         >
             <div v-if="exibir2" class="caixa"></div>
         </transition>
+        <hr />
+
+        <div class="mb-4">
+            <b-button  variant="info" class="mb-4 mr-2" @click="selComponent='InfoAlert'">Info</b-button>
+            <b-button  variant="warning" class="mb-4 mr-2" @click="selComponent='AlertAdv'">Adv</b-button>
+        </div>
+		<transition name="fade" mode="out-in">
+			<component :is="selComponent"></component>
+		</transition>
+
     </div>
 </template>
 
 <script>
+import AlertAdv from "./AlertAdv"
+import InfoAlert from "./InfoAlert"
+
 export default {
+    components: {
+        AlertAdv,
+        InfoAlert
+    },
     data() {
         return {
             msg: "Mensagem de Usuário Aqui!",
             exibir: false,
             exibir2: true,
-			tipoAnim: "fade",
-			larguraBase: 0
+            tipoAnim: "fade",
+            larguraBase: 0,
+            selComponent: "InfoAlert"
         }
-	},
-	methods:{
-		animar(el, done, negativo){
-			let rodada = 1
-			const temp = setInterval(()=>{
-				const novaLargura = this.larguraBase + (negativo ? -rodada * 10 : rodada * 10)
-				el.style.width = `${novaLargura}px`
-				rodada++
-				if(rodada > 30){
-					clearInterval(temp)
-					done()
-				}
-			}, 20)
-		},
-		beforeEnter(el){
-			this.larguraBase = 0
-			el.style.width = `${this.larguraBase}px`
-		},
-		enter(el, done){
-			this.animar(el, done, false)
-		},
-/* 		afterEnter(el){
+    },
+    methods: {
+        animar(el, done, negativo) {
+            let rodada = 1
+            const temp = setInterval(() => {
+                const novaLargura =
+                    this.larguraBase + (negativo ? -rodada * 10 : rodada * 10)
+                el.style.width = `${novaLargura}px`
+                rodada++
+                if (rodada > 30) {
+                    clearInterval(temp)
+                    done()
+                }
+            }, 20)
+        },
+        beforeEnter(el) {
+            this.larguraBase = 0
+            el.style.width = `${this.larguraBase}px`
+        },
+        enter(el, done) {
+            this.animar(el, done, false)
+        },
+        /* 		afterEnter(el){
 			console.log('after enter')
 		},
 		enterCancelled(el){
 			console.log('enter cancelled')
 		}, */
-		beforeLeave(el){
-			this.larguraBase = 300
-			el.style.width = `${this.larguraBase}px`
-		},
-		leave(el, done){
-			this.animar(el, done, true)
-		},
-/* 		afterLeave(el){
+        beforeLeave(el) {
+            this.larguraBase = 300
+            el.style.width = `${this.larguraBase}px`
+        },
+        leave(el, done) {
+            this.animar(el, done, true)
+        }
+        /* 		afterLeave(el){
 			console.log('after leave')
 		},
 		leaveCancelled(el){
 			console.log('leave cancelled')
 		}, */
-	}
+    }
 }
 </script>
 
@@ -107,7 +126,7 @@ export default {
 }
 .caixa {
     height: 100px;
-	width: 300px;
+    width: 300px;
     margin: 30px auto;
     background-color: #2c3e50;
 }
