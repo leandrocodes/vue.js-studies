@@ -33,12 +33,8 @@
 			:css="false"
             @before-enter="beforeEnter"
             @enter="enter"
-            @after-enter="afterEnter"
-            @enter-cancelled="enterCancelled"
             @before-leave="beforeLeave"
             @leave="leave"
-            @after-leave="afterLeave"
-            @leave-cancelled="leaveCancelled"
         >
             <div v-if="exibir2" class="caixa"></div>
         </transition>
@@ -60,7 +56,7 @@ export default {
 		animar(el, done, negativo){
 			let rodada = 1
 			const temp = setInterval(()=>{
-				const novaLargura = this.larguraBase + (negatio ? -rodada * 10 : rodada * 10)
+				const novaLargura = this.larguraBase + (negativo ? -rodada * 10 : rodada * 10)
 				el.style.width = `${novaLargura}px`
 				rodada++
 				if(rodada > 30){
@@ -76,12 +72,12 @@ export default {
 		enter(el, done){
 			this.animar(el, done, false)
 		},
-		afterEnter(el){
+/* 		afterEnter(el){
 			console.log('after enter')
 		},
 		enterCancelled(el){
 			console.log('enter cancelled')
-		},
+		}, */
 		beforeLeave(el){
 			this.larguraBase = 300
 			el.style.width = `${this.larguraBase}px`
@@ -89,12 +85,12 @@ export default {
 		leave(el, done){
 			this.animar(el, done, true)
 		},
-		afterLeave(el){
+/* 		afterLeave(el){
 			console.log('after leave')
 		},
 		leaveCancelled(el){
 			console.log('leave cancelled')
-		},
+		}, */
 	}
 }
 </script>
