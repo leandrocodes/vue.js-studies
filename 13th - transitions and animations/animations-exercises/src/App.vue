@@ -48,6 +48,17 @@
 			<component :is="selComponent"></component>
 		</transition>
 
+		<hr>
+		<br>
+		<hr>
+
+		<b-button class="mb-4" variant="success" @click="adicionarAluno">Adicionar Aluno</b-button>
+		<b-list-group>
+			<b-list-group-item @click="removerAluno(index)" v-for="(aluno, index) in alunos" :key="index">
+				{{aluno}}
+			</b-list-group-item>
+		</b-list-group>
+
     </div>
 </template>
 
@@ -67,10 +78,18 @@ export default {
             exibir2: true,
             tipoAnim: "fade",
             larguraBase: 0,
-            selComponent: "InfoAlert"
+			selComponent: "InfoAlert",
+			alunos: ['Leandro', 'Cláudio', 'Taina', 'Daniel', 'Thiago']
         }
     },
     methods: {
+		adicionarAluno(){
+			const s = Math.random().toString(36).substring(2)
+			this.alunos.push(s)
+		},
+		removerAluno(indice){
+			this.alunos.splice(indice, 1)
+		},
         animar(el, done, negativo) {
             let rodada = 1
             const temp = setInterval(() => {
