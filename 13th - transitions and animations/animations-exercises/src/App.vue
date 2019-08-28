@@ -3,7 +3,7 @@
         <h1>Animações</h1>
         <hr />
         <b-button variant="primary" class="mb-4" @click="exibir = !exibir">Mostrar Mensagem</b-button>
-
+<!-- 
         <transition name="fade" appear>
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
@@ -18,6 +18,14 @@
 			appear
 		>
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
+        </transition> -->
+		<hr>
+		<b-select v-model="tipoAnim" class="mb-4">
+			<option value="fade">Fade</option>
+			<option value="slide">slide</option>
+		</b-select>
+		<transition :name="tipoAnim">
+            <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
     </div>
 </template>
@@ -27,7 +35,8 @@ export default {
     data() {
         return {
             msg: "Mensagem de Usuário Aqui!",
-            exibir: false
+			exibir: false,
+			tipoAnim: 'fade'
         }
     }
 }
