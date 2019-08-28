@@ -8,7 +8,7 @@
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
 
-        <transition name="slide">
+        <transition name="slide" type="animation">
             <b-alert variant="info" show v-if="exibir">{{ msg }}</b-alert>
         </transition>
     </div>
@@ -41,7 +41,7 @@ export default {
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.3s;
+    transition: opacity 2s;
 }
 
 @keyframes slide-in {
@@ -55,11 +55,17 @@ export default {
 }
 
 .slide-enter-active{
-	animation: slide-in .3s ease
+	animation: slide-in 2s ease;
+	transition: opacity 2s;
 }
 
 .slide-leave-active{
-	animation: slide-out .3s ease
+	animation: slide-out 2s ease;
+	transition: opacity 2s;
+}
+
+.slide-enter, .slide-leave-to {
+    opacity: 0;
 }
 
 </style>
