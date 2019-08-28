@@ -28,8 +28,9 @@
         </transition>
 
         <hr />
-        <b-button variant="primary" class="mb-4" @click="exibir2 = !exibir2">Mostrar</b-button>
+        <b-button variant="primary" class="mb-4" @click="exibir2 = !exibir2">Alternar</b-button>
         <transition
+			:css="false"
             @before-enter="beforeEnter"
             @enter="enter"
             @after-enter="afterEnter"
@@ -51,16 +52,29 @@ export default {
             msg: "Mensagem de Usuário Aqui!",
             exibir: false,
             exibir2: true,
-            tipoAnim: "fade"
+			tipoAnim: "fade",
+			larguraBase: 0
         }
 	},
 	methods:{
+		animar(el, done, negativo){
+			let rodada = 1
+			const temp = setInterval(()=>{
+				const novaLargura = this.larguraBase + (negatio ? -rodada * 10 : rodada * 10)
+				el.style.width = `${novaLargura}px`
+				rodada++
+				if(rodada > 30){
+					clearInterval(temp)
+					done()
+				}
+			}, 20)
+		},
 		beforeEnter(el){
-			console.log('before enter')
+			this.larguraBase = 0
+			el.style.width = `${this.larguraBase}px`
 		},
 		enter(el, done){
-			console.log('enter')
-			done()
+			this.animar(el, done, false)
 		},
 		afterEnter(el){
 			console.log('after enter')
@@ -69,11 +83,11 @@ export default {
 			console.log('enter cancelled')
 		},
 		beforeLeave(el){
-			console.log('before leave')
+			this.larguraBase = 300
+			el.style.width = `${this.larguraBase}px`
 		},
 		leave(el, done){
-			console.log('leave')
-			done()
+			this.animar(el, done, true)
 		},
 		afterLeave(el){
 			console.log('after leave')
@@ -97,7 +111,7 @@ export default {
 }
 .caixa {
     height: 100px;
-    width: 300px;
+	width: 300px;
     margin: 30px auto;
     background-color: #2c3e50;
 }
