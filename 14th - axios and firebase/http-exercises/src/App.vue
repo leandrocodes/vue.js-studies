@@ -20,6 +20,7 @@
             </b-form-group>
             <hr />
             <b-button @click="salvar" size="lg" variant="primary">Salvar</b-button>
+			<b-button class="ml-4" @click="obterUsuarios" size="lg" variant="success">Carregar</b-button>
         </b-card>
     </div>
 </template>
@@ -37,7 +38,8 @@ export default {
             usuario: {
                 nome: "",
                 email: ""
-            }
+			},
+			usuarios: []
 		}
     },
     methods: {
@@ -47,7 +49,13 @@ export default {
 					this.usuario.nome = '',
 					this.usuario.email = ''
 				})
-        }
+		},
+		obterUsuarios() {
+			this.axios.get('usuarios.json').then(res =>{
+				this.usuarios = res.data
+				console.log(res.data)
+			})
+		}
     }
 }
 </script>
