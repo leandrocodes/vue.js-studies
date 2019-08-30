@@ -6,12 +6,12 @@
 
 <script>
 export default {
-/* 	created(){
-		this.$http.post('usuarios.json', {
+	created(){
+		this.axios.post('usuarios.json', {
 			nome: 'maria',
 			email: 'maria@maria.com',
 		}).then(res => console.log(res))
-	} */
+	}
 }
 </script>
 
