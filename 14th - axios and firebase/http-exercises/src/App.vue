@@ -22,6 +22,16 @@
             <b-button @click="salvar" size="lg" variant="primary">Salvar</b-button>
 			<b-button class="ml-4" @click="obterUsuarios" size="lg" variant="success">Carregar</b-button>
         </b-card>
+		<hr>
+		<b-list-group>
+			<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
+				<strong>Nome: {{usuario.nome}}</strong>
+				<br>
+				<strong>Email: {{usuario.email}}</strong>
+				<br>
+				<strong>ID: {{id}}</strong>
+			</b-list-group-item>
+		</b-list-group>
     </div>
 </template>
 
@@ -53,7 +63,6 @@ export default {
 		obterUsuarios() {
 			this.axios.get('usuarios.json').then(res =>{
 				this.usuarios = res.data
-				console.log(res.data)
 			})
 		}
     }
