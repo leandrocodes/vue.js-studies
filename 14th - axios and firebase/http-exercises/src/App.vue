@@ -38,11 +38,15 @@ export default {
                 nome: "",
                 email: ""
             }
-        }
+		}
     },
     methods: {
         salvar() {
-            console.log(this.usuario)
+			this.axios.post('usuarios.json', this.usuario)
+				.then(resp =>{
+					this.usuario.nome = '',
+					this.usuario.email = ''
+				})
         }
     }
 }
