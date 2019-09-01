@@ -25,7 +25,8 @@ Vue.use({
                 arr.push({id: chave, ...res.data[chave]})
                 //forma antiga e depreciada => arr.push({id: chave, nome: res.data[chave].nome, email: res.data[chave].email})
             }
-
+            res.data = arr
+            return res
         }, error => Promise.reject(error))
     }
 })

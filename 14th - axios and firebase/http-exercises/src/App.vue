@@ -29,7 +29,7 @@
                 <br />
                 <strong>Email: {{usuario.email}}</strong>
                 <br />
-                <strong>ID: {{id}}</strong>
+                <strong>ID: {{usuario.id}}</strong>
             </b-list-group-item>
         </b-list-group>
     </div>
@@ -61,6 +61,7 @@ export default {
         obterUsuarios() {
             this.axios.get("usuarios.json").then(res => {
                 this.usuarios = res.data
+                console.log(this.usuarios)
             })
         }
     }
