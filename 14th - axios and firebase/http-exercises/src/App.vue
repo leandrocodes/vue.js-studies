@@ -54,7 +54,7 @@ export default {
     },
     methods: {
         salvar() {
-            this.axios.post("usuarios.json", this.usuario).then(resp => {
+            this.axios.post("usuarios.json", this.usuario).then(() => {
                 (this.usuario.nome = ""), (this.usuario.email = "")
             })
         },
