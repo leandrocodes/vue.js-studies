@@ -17,15 +17,16 @@ Vue.use({
                                         config.method = 'put'  */
             return config
         }, error => Promise.reject(error))
-        
-        Vue.prototype.axios.interceptors.response.use(res => {
-            const arr = []
 
-            for(let chave in res.data){
-                arr.push({id: chave, ...res.data[chave]})
-                //forma antiga e depreciada => arr.push({id: chave, nome: res.data[chave].nome, email: res.data[chave].email})
-            }
-            res.data = arr
+        //pegando o ID do usuario (firebase) e colocando dentro do objeto usuario
+        Vue.prototype.axios.interceptors.response.use(res => {
+            /*             const arr = []
+            
+                        for(let chave in res.data){
+                            arr.push({id: chave, ...res.data[chave]})
+                            //forma antiga e depreciada => arr.push({id: chave, nome: res.data[chave].nome, email: res.data[chave].email})
+                        }
+                        res.data = arr */
             return res
         }, error => Promise.reject(error))
     }
