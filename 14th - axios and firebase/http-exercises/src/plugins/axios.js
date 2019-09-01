@@ -18,7 +18,12 @@ Vue.use({
             return config
         }, error => Promise.reject(error))
         
-        Vue.prototype.axios..interceptors.response.use(res => {
+        Vue.prototype.axios.interceptors.response.use(res => {
+            const arr = []
+
+            for(let chave in res.data){
+                arr.push({id: chave, ...res.data[chave]})
+            }
 
         }, error => Promise.reject(error))
     }
