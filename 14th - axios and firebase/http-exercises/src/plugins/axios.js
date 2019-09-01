@@ -16,6 +16,10 @@ Vue.use({
                                     if(config.method == 'post')
                                         config.method = 'put'  */
             return config
-        })
+        }, error => Promise.reject(error))
+        
+        Vue.prototype.axios..interceptors.response.use(res => {
+
+        }, error => Promise.reject(error))
     }
 })
