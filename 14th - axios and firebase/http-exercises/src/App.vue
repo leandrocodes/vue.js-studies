@@ -113,12 +113,11 @@ export default {
             
             .then(() => {
                 this.clear()
-                this.obterUsuarios()
-
                 this.mensagens.push({
                     texto: 'Excluído com sucesso! ',
                     tipo: 'success'
                 })
+                this.obterUsuarios()
             })
             
             .catch((err)=>{
