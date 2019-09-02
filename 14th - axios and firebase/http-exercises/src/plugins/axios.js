@@ -2,12 +2,17 @@ import Vue from 'vue'
 import axios from 'axios'
 
 //axios.defaults.baseURL = 'https://vue-udemy-47d60.firebaseio.com/'
+// axios.defaults.headers.common['Authorization'] = 'abc123'
+// axios.defaults.headers.get['Accepts'] = 'aplication/json'
 
 Vue.use({
     install(Vue) {
         //Vue.prototype.$http = axios
         Vue.prototype.axios = axios.create({
-            baseURL: 'https://vue-udemy-47d60.firebaseio.com/'
+            baseURL: 'https://vue-udemy-47d60.firebaseio.com/',
+            headers: {
+                "Authorization": "abc123"
+            }
 
         })
 
