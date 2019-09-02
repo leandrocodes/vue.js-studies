@@ -75,6 +75,15 @@ export default {
         carregar(id) {
             this.id = id
             this.usuario = {...this.usuarios[id]}
+        },
+        deletar(id){
+            this.axios.delete(`/usuarios/${id}.json`).then(() => this.clear())
+            this.obterUsuarios()
+        },
+        editar(){
+            const metodo = this.id ? 'patch' : 'post'
+            const finalURL = this.id ? `/${this.id}.json` : `.json`
+            this.axios[metodo] = (`/usarios${finalURL}`)
         }
     }
 }
