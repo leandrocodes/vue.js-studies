@@ -75,8 +75,8 @@ export default {
             const metodo = this.id ? "patch" : "post"
             const finalURL = this.id ? `/${this.id}.json` : `.json`
             this.axios[metodo](`/usuarios${finalURL}`, this.usuario)
-            
-            .then(() => {
+
+                .then(() => {
                     this.clear()
 
                     if (metodo === "patch") {
@@ -92,12 +92,12 @@ export default {
                         })
                     }
                 })
-            .catch((err)=>{
-                this.mensagens.push({
-                    texto: 'Erro ao inserir! ' + err,
-                    tipo: 'danger'
+                .catch(err => {
+                    this.mensagens.push({
+                        texto: "Erro ao inserir! " + err,
+                        tipo: "danger"
+                    })
                 })
-            })
         },
         obterUsuarios() {
             this.axios.get("usuarios.json").then(res => {
@@ -109,23 +109,24 @@ export default {
             this.usuario = { ...this.usuarios[id] }
         },
         deletar(id) {
-            this.axios.delete(`/usuarios/${id}.json`)
-            
-            .then(() => {
-                this.clear()
-                this.mensagens.push({
-                    texto: 'Excluído com sucesso! ',
-                    tipo: 'success'
+            this.axios
+                .delete(`/usuarios/${id}.json`)
+
+                .then(() => {
+                    this.clear()
+                    this.mensagens.push({
+                        texto: "Excluído com sucesso! ",
+                        tipo: "success"
+                    })
+                    this.obterUsuarios()
                 })
-                this.obterUsuarios()
-            })
-            
-            .catch((err)=>{
-                this.mensagens.push({
-                    texto: 'Erro ao excluir! ' + err,
-                    tipo: 'danger'
+
+                .catch(err => {
+                    this.mensagens.push({
+                        texto: "Erro ao excluir! " + err,
+                        tipo: "danger"
+                    })
                 })
-            })
         }
     }
 }
