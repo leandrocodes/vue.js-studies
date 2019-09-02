@@ -74,8 +74,9 @@ export default {
         salvar() {
             const metodo = this.id ? "patch" : "post"
             const finalURL = this.id ? `/${this.id}.json` : `.json`
-            this.axios[metodo](`/usuarios${finalURL}`, this.usuario).then(
-                () => {
+            this.axios[metodo](`/usuarios${finalURL}`, this.usuario)
+            
+            .then(() => {
                     this.clear()
 
                     if (metodo === "patch") {
@@ -85,7 +86,6 @@ export default {
                             tipo: "success"
                         })
                     } else {
-                        this.obterUsuarios()
                         this.mensagens.push({
                             texto: "Usuário inserido com sucesso!",
                             tipo: "success"
@@ -104,9 +104,23 @@ export default {
             this.usuario = { ...this.usuarios[id] }
         },
         deletar(id) {
-            this.axios.delete(`/usuarios/${id}.json`).then(() => {
+            this.axios.delete(`/usuarios/${id}.json`)
+            
+            .then(() => {
                 this.clear()
                 this.obterUsuarios()
+
+                this.mensagens.push({
+                    texto: 'Excluído com sucesso! ',
+                    tipo: 'success'
+                })
+            })
+            
+            .catch((err)=>{
+                this.mensagens.push({
+                    texto: 'Erro ao excluir! ' + err,
+                    tipo: 'danger'
+                })
             })
         }
     }
