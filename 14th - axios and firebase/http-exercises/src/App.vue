@@ -91,8 +91,13 @@ export default {
                             tipo: "success"
                         })
                     }
-                }
-            )
+                })
+            .catch((err)=>{
+                this.mensagens.push({
+                    texto: 'Erro ao inserir! ' + err,
+                    tipo: 'danger'
+                })
+            })
         },
         obterUsuarios() {
             this.axios.get("usuarios.json").then(res => {
