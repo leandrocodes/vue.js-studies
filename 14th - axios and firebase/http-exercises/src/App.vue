@@ -31,7 +31,7 @@
                 <br />
                 <strong>ID: {{id}}</strong>
                 <br />
-                <b-button variant="warning" @click="carregar(id)">Carregar</b-button>
+                <b-button variant="warning" @click="carregar(id)">Editar</b-button>
                 <b-button class="ml-2" variant="danger" @click="deletar(id)">Delete</b-button>
             </b-list-group-item>
         </b-list-group>
