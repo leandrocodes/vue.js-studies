@@ -30,7 +30,7 @@
                 <strong>Email: {{usuario.email}}</strong>
                 <br />
                 <strong>ID: {{id}}</strong>
-                <br>
+                <br />
                 <b-button variant="warning" @click="carregar(id)">Carregar</b-button>
                 <b-button class="ml-2" variant="danger" @click="deletar(id)">Delete</b-button>
             </b-list-group-item>
@@ -57,14 +57,18 @@ export default {
         }
     },
     methods: {
-        clear(){
+        clear() {
             this.usuario.nome = ""
             this.usuario.email = ""
             this.id = null
         },
         salvar() {
-            this.axios.post("usuarios.json", this.usuario).then(() => {
+            const metodo = this.id ? "patch" : "post"
+            const finalURL = this.id ? `/${this.id}.json` : `.json`
+            this.axios[metodo](`/usuarios${finalURL}`, this.usuario).then(() => {
                 this.clear()
+                if(metodo === "patch")
+                    this.obterUsuarios()
             })
         },
         obterUsuarios() {
@@ -74,16 +78,13 @@ export default {
         },
         carregar(id) {
             this.id = id
-            this.usuario = {...this.usuarios[id]}
+            this.usuario = { ...this.usuarios[id] }
         },
-        deletar(id){
-            this.axios.delete(`/usuarios/${id}.json`).then(() => this.clear())
-            this.obterUsuarios()
-        },
-        editar(){
-            const metodo = this.id ? 'patch' : 'post'
-            const finalURL = this.id ? `/${this.id}.json` : `.json`
-            this.axios[metodo] = (`/usarios${finalURL}`)
+        deletar(id) {
+            this.axios.delete(`/usuarios/${id}.json`).then(() => {
+                this.clear()
+                this.obterUsuarios()
+            })
         }
     }
 }
