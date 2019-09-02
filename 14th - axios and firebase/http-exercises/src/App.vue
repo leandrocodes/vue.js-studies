@@ -1,6 +1,13 @@
 <template>
     <div id="app" class="container">
         <h1>HTTP com Axios</h1>
+        <b-alert
+            show
+            dismissable
+            :variant="mensagem.tipo"
+            v-for="mensagem in mensagens"
+            :key="mensagem.texto"
+        >{{ mensagem.texto }}</b-alert>
         <b-card>
             <b-form-group label="Nome: ">
                 <b-form-input
@@ -53,7 +60,8 @@ export default {
                 email: ""
             },
             usuarios: [],
-            id: null
+            id: null,
+            mensagens: []
         }
     },
     methods: {
@@ -61,15 +69,30 @@ export default {
             this.usuario.nome = ""
             this.usuario.email = ""
             this.id = null
+            this.mensagens = []
         },
         salvar() {
             const metodo = this.id ? "patch" : "post"
             const finalURL = this.id ? `/${this.id}.json` : `.json`
-            this.axios[metodo](`/usuarios${finalURL}`, this.usuario).then(() => {
-                this.clear()
-                if(metodo === "patch")
-                    this.obterUsuarios()
-            })
+            this.axios[metodo](`/usuarios${finalURL}`, this.usuario).then(
+                () => {
+                    this.clear()
+
+                    if (metodo === "patch") {
+                        this.obterUsuarios()
+                        this.mensagens.push({
+                            texto: "Usuário salvo com sucesso!",
+                            tipo: "success"
+                        })
+                    } else {
+                        this.obterUsuarios()
+                        this.mensagens.push({
+                            texto: "Usuário inserido com sucesso!",
+                            tipo: "success"
+                        })
+                    }
+                }
+            )
         },
         obterUsuarios() {
             this.axios.get("usuarios.json").then(res => {
