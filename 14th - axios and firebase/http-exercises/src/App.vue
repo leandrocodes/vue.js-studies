@@ -30,6 +30,9 @@
                 <strong>Email: {{usuario.email}}</strong>
                 <br />
                 <strong>ID: {{id}}</strong>
+                <br>
+                <b-button variant="warning" @click="carregar(id)">Carregar</b-button>
+                <b-button class="ml-2" variant="danger" @click="deletar(id)">Delete</b-button>
             </b-list-group-item>
         </b-list-group>
     </div>
@@ -49,19 +52,29 @@ export default {
                 nome: "",
                 email: ""
             },
-            usuarios: []
+            usuarios: [],
+            id: null
         }
     },
     methods: {
+        clear(){
+            this.usuario.nome = ""
+            this.usuario.email = ""
+            this.id = null
+        },
         salvar() {
             this.axios.post("usuarios.json", this.usuario).then(() => {
-                (this.usuario.nome = ""), (this.usuario.email = "")
+                this.clear()
             })
         },
         obterUsuarios() {
             this.axios.get("usuarios.json").then(res => {
                 this.usuarios = res.data
             })
+        },
+        carregar(id) {
+            this.id = id
+            this.usuario = {...this.usuarios[id]}
         }
     }
 }
