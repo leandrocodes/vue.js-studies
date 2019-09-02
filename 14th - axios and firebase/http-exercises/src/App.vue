@@ -3,7 +3,7 @@
         <h1>HTTP com Axios</h1>
         <b-alert
             show
-            dismissable
+            dismissible
             :variant="mensagem.tipo"
             v-for="mensagem in mensagens"
             :key="mensagem.texto"
