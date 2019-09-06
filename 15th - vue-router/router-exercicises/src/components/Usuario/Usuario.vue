@@ -2,21 +2,14 @@
     <div class="usuario">
         <h2>Usuários</h2>
         <hr />
-        <p>
-            <strong>Código</strong>
-            {{id}}
-        </p>
+        <router-view></router-view>
         <button sucesso @click="irInicio">Voltar</button>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        id: {
-            type: Number 
-        }
-    },
+
     /*     data() {
         return {
             id: this.$route.params.id
