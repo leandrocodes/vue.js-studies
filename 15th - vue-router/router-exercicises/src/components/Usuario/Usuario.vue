@@ -18,6 +18,11 @@ export default {
         irInicio(){
             this.$router.push('/')
         }
+    },
+    watch: {
+        $route(to){
+            this.id = to.params.id
+        }
     }
 }
 </script>
