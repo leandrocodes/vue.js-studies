@@ -2,26 +2,34 @@
     <div class="usuario">
         <h2>Usuários</h2>
         <hr />
-        <p> <strong>Código</strong> {{id}}</p>
+        <p>
+            <strong>Código</strong>
+            {{id}}
+        </p>
         <button sucesso @click="irInicio">Voltar</button>
     </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
+    props: {
+        id: {
+            type: Number 
+        }
+    },
+    /*     data() {
+        return {
             id: this.$route.params.id
         }
     },
-    methods: {
-        irInicio(){
-            this.$router.push('/')
-        }
-    },
     watch: {
-        $route(to){
+        $route(to) {
             this.id = to.params.id
+        }
+    }, */
+    methods: {
+        irInicio() {
+            this.$router.push('/')
         }
     }
 }
