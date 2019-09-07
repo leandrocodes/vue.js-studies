@@ -21,7 +21,7 @@ export default {
     }, */
     methods: {
         irInicio() {
-            this.$router.push('/')
+            this.$router.push({name: 'inicio'})
         }
     }
 }
