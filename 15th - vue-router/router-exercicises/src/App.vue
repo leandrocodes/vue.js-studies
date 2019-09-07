@@ -1,24 +1,24 @@
 <template>
-	<div id="app">
-		<h1>Rotas com VueRouter</h1>
-		<Menu/>
-		<router-view/>
-	</div>
+    <div id="app">
+        <h1>Rotas com VueRouter</h1>
+        <Menu />
+        <router-view />
+    </div>
 </template>
 
 <script>
 import Menu from './components/Template/Menu'
 export default {
-	components:{
-		Menu
-	}
+    components: {
+        Menu
+    }
 }
 </script>
 
 <style>
-	#app {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 </style>
