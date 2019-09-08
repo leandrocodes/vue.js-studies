@@ -1,10 +1,10 @@
 <template>
-    <div class="usuario">
-        <h2>Usuários</h2>
-        <hr />
-        <router-view></router-view>
-        <button sucesso @click="irInicio">Voltar</button>
-    </div>
+<div class="usuario">
+    <h2>Usuários</h2>
+    <hr />
+    <router-view></router-view>
+    <button sucesso @click="irInicio">Voltar</button>
+</div>
 </template>
 
 <script>
@@ -21,7 +21,9 @@ export default {
     }, */
     methods: {
         irInicio() {
-            this.$router.push({name: 'inicio'})
+            this.$router.push({
+                name: 'inicio'
+            })
         }
     }
 }

@@ -11,47 +11,61 @@ import MenuAlt from './components/Template/Alt'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
-    scrollBehavior(to) {
-        if(to.hash){
-            return {
-                selector: to.hash
-            }
-        }
-    },
-    routes: [
-        {
-            path: '/',
-            component: Inicio,
-            name: 'inicio',
-            components: {
-                default: Inicio,
-                menu: Menu
-            }
-        },
-        {
-            path: '/usuario',
-            component: Usuario,
-            props: true,
-            children: [
-                { path: '', component: UsuarioLista },
-                { path: ':id', component: UsuarioDetalhes, props: true },
-                { path: ':id/editar', component: UsuarioEditar, props: true, name: 'editarUsuario' },
+	mode: 'history',
+	scrollBehavior(to, from, savedPosition) {
+		if (savedPosition) {
+            return savedPosition
+		}
+		if (to.hash) {
+			return {
+				selector: to.hash
+			}
+		}
+        return {x: 0, y: 0}
+	},
+	routes: [{
+			path: '/',
+			component: Inicio,
+			name: 'inicio',
+			components: {
+				default: Inicio,
+				menu: Menu
+			}
+		},
+		{
+			path: '/usuario',
+			component: Usuario,
+			props: true,
+			children: [{
+					path: '',
+					component: UsuarioLista
+				},
+				{
+					path: ':id',
+					component: UsuarioDetalhes,
+					props: true
+				},
+				{
+					path: ':id/editar',
+					component: UsuarioEditar,
+					props: true,
+					name: 'editarUsuario'
+				},
 
-            ],
-            components: {
-                default: Usuario,
-                menu: MenuAlt,
-                menuInferior: Menu
-            },
-        },
-        {
-            path: '/redirecionar',
-            redirect: '/usuario'
-        },
-        {
-            path: '*',
-            redirect: '/'
-        }
-    ]
+			],
+			components: {
+				default: Usuario,
+				menu: MenuAlt,
+				menuInferior: Menu
+			},
+		},
+		{
+			path: '/redirecionar',
+			redirect: '/usuario'
+		},
+		{
+			path: '*',
+			redirect: '/'
+		}
+	]
 })
