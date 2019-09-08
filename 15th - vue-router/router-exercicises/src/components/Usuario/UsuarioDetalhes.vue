@@ -14,7 +14,8 @@ export default {
     props: ['id'],
     beforeRouteEnter (to, from, next) {
         console.log('dentro do componente -> usuario detalhe')
-        next()
+        const autenticado = true
+        autenticado ?  next() : next(false)
     }
 }
 </script>
