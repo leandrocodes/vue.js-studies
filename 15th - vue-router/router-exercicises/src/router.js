@@ -16,7 +16,7 @@ export default new Router({
         {
             path: '/',
             component: Inicio,
-            //name: 'inicio'
+            name: 'inicio',
             components: {
                 default: Inicio,
                 menu: Menu
@@ -36,7 +36,11 @@ export default new Router({
                 default: Usuario,
                 menu: MenuAlt,
                 menuInferior: Menu
-            }
+            },
+        },
+        {
+            path: '/redirecionar',
+            redirect: '/usuario'
         }
     ]
 })
