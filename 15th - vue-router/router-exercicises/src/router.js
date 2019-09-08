@@ -11,8 +11,8 @@ import MenuAlt from './components/Template/Alt'
 Vue.use(Router)
 
 //lazy loading
-const Usuario = () => import('./components/Usuario/Usuario')
-const UsuarioLista = () => import('./components/Usuario/UsuarioLista')
+const Usuario = () => import( /* webpackChunkName: "usuario" */ './components/Usuario/Usuario')
+const UsuarioLista = () => import( /* webpackChunkName: "usuario" */ './components/Usuario/UsuarioLista')
 const UsuarioDetalhes = () => import('./components/Usuario/UsuarioDetalhes')
 const UsuarioEditar = () => import('./components/Usuario/UsuarioEditar')
 
