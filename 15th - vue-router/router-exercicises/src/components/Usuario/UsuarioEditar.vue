@@ -24,7 +24,7 @@
 export default {
     props: ['id']
 }
-</script>   
+</script>
 
 <style>
 #rodape {
