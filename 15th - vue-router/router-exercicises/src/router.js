@@ -10,7 +10,7 @@ import MenuAlt from './components/Template/Alt'
 
 Vue.use(Router)
 
-export default new Router({
+export const router = new Router({
 	mode: 'history',
 	scrollBehavior(to, from, savedPosition) {
 		if (savedPosition) {
@@ -69,3 +69,6 @@ export default new Router({
 		}
 	]
 })
+
+
+export default router
