@@ -11,7 +11,11 @@
 
 <script>
 export default {
-    props: ['id']
+    props: ['id'],
+    beforeRouteEnter (to, from, next) {
+        console.log('dentro do componente -> usuario detalhe')
+        next()
+    }
 }
 </script>
 
