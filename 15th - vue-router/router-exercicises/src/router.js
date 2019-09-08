@@ -45,7 +45,7 @@ export const router = new Router({
             component: UsuarioDetalhes,
             props: true,
             beforeEnter: (to, from, next) => {
-                console.log('antes da rota -> usuario detalhe')
+                //console.log('antes da rota -> usuario detalhe')
                 next()
             }
         },
@@ -75,7 +75,7 @@ export const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log('antes das rotas -> global')
+    //console.log('antes das rotas -> global')
     next()
 })
 
