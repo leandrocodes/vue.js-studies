@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Inicio from './components/Inicio'
-import Usuario from './components/Usuario/Usuario'
-import UsuarioLista from './components/Usuario/UsuarioLista'
-import UsuarioEditar from './components/Usuario/UsuarioEditar'
-import UsuarioDetalhes from './components/Usuario/UsuarioDetalhes'
+//import Usuario from './components/Usuario/Usuario'
+//import UsuarioLista from './components/Usuario/UsuarioLista'
+//import UsuarioEditar from './components/Usuario/UsuarioEditar'
+//import UsuarioDetalhes from './components/Usuario/UsuarioDetalhes'
 import Menu from './components/Template/Menu'
 import MenuAlt from './components/Template/Alt'
 
 Vue.use(Router)
+
+//lazy loading
+const Usuario = () => import('./components/Usuario/Usuario')
+const UsuarioLista = () => import('./components/Usuario/UsuarioLista')
+const UsuarioDetalhes = () => import('./components/Usuario/UsuarioDetalhes')
+const UsuarioEditar = () => import('./components/Usuario/UsuarioEditar')
 
 export const router = new Router({
     mode: 'history',
