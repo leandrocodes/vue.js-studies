@@ -36,6 +36,7 @@ export default {
             //this.$store.state.produtos.push(produto)
             //this.$store.commit('adicionarProduto', produto)
             this.adicionarProduto(produto)
+            //this.$store.dispatch('adicionarProduto', produto)
         }
     }
 }
