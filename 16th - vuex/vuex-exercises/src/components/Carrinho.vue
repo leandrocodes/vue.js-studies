@@ -17,9 +17,12 @@
                     </tr>
                 </tbody>
             </table>
-            <hr>
+            <hr />
             <div class="total">
-                <span>Total: <strong>{{ total | dinheiro }}</strong></span>
+                <span>
+                    Total:
+                    <strong>{{ total | dinheiro }}</strong>
+                </span>
             </div>
         </div>
     </Painel>
@@ -34,26 +37,26 @@ export default {
         produtos() {
             return this.$store.state.produtos
         }
-    },
+    }
 }
 </script>
 
 <style>
-    table {
-        width: 100%;
-    }
+table {
+    width: 100%;
+}
 
-    td {
-        border-top: 1px solid #EEE;
-        width: 33%;
-    }
+td {
+    border-top: 1px solid #eee;
+    width: 33%;
+}
 
-    hr {
-        margin-top: 30px;
-    }
+hr {
+    margin-top: 30px;
+}
 
-    .total {
-        display: flex;
-        justify-content: flex-end;
-    }
+.total {
+    display: flex;
+    justify-content: flex-end;
+}
 </style>
