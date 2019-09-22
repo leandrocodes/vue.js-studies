@@ -22,7 +22,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions('carrinho', ['adicionarProduto']),
+        ...mapActions(['adicionarProduto']),
         adicionar() {
             const produto = {
                 id: this.sequencia,

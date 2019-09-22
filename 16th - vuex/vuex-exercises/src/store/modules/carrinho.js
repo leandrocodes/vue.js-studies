@@ -15,10 +15,13 @@ export default {
         }
     },
     actions: {
-        adicionarProduto({ commit }, payload) {
-            setTimeout(() => {
-                commit('adicionarProduto', payload)
-            }, 1000)
+        adicionarProduto: {
+            root: true,
+            handler({ commit }, payload) {
+                setTimeout(() => {
+                    commit('adicionarProduto', payload)
+                }, 1000)
+            }
         }
     }
 }
