@@ -44,7 +44,7 @@ export default {
     }
 }
 </script>
-
+k
 <style>
 table {
     width: 100%;
