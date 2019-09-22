@@ -22,7 +22,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['adicionarProduto']),
+        ...mapActions('carrinho', ['adicionarProduto']),
         adicionar() {
             const produto = {
                 id: this.sequencia,
@@ -35,6 +35,7 @@ export default {
             //this.$store.commit('adicionarProduto', produto)
             this.adicionarProduto(produto)
             //this.$store.dispatch('adicionarProduto', produto)
+            console.log(this.$store.getters.getNomeCompleto)
         }
     },
     computed: {
