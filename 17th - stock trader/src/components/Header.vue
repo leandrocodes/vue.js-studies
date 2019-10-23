@@ -14,18 +14,18 @@
 
     <v-toolbar-items>
       <v-btn flat>Finalizar Dia</v-btn>
-      <v-menu offset-y>
+      <v-menu offset-y transition='slide-y-transition'>
         <v-btn flat slot="activator">
           Salvar & Carregar
         </v-btn>
         <v-list>
           <v-list-tile>
-            <v-list-title>
+            <v-list-title name='save'>
               Salvar Dados
             </v-list-title>
           </v-list-tile>
           <v-list-tile>
-            <v-list-title>
+            <v-list-title name='load'>
               Carregar Dados
             </v-list-title>
           </v-list-tile>
